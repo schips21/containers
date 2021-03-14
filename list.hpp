@@ -3,19 +3,32 @@
 
 #include <iostream>
 
-namespace ft{class list; class node}
+namespace ft {
+	template<typename T>
+	class list {
+	public:
+		list();
+		list(const list& other);
+		list & operator=( const list& other );
+		~list();
 
-template <typename T>
-class list{
-private:
-	T content;
-	T * prev_elem;
-	T * next_elem;
+	private:
+		friend class node;
 
-//	class node{
-//
-//	};
 
-};
+		class node{
+		public:
+			friend class list<T>;
+
+			T			*data;
+			node		*prev;
+			node		*next;
+
+
+		};
+
+
+}
+
 
 #endif
