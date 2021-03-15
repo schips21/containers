@@ -4,25 +4,70 @@
 #include <iostream>
 
 namespace ft {
-	template<typename T>
+	template<typename T, class Allocator = std::allocator<T>>
 	class list {
 	public:
-		list();
-		list(const list& other);
-		list & operator=( const list& other );
+		typedef T							value_type;
+		typedef Allocator					allocator_type;
+		typedef std::size_t					size_type;
+		typedef std::ptrdiff_t				difference_type;
+		typedef Allocator::reference		reference;
+		typedef Allocator::const_reference	const_reference;
+		typedef Allocator::pointer			pointer;
+		typedef Allocator::const_pointer	const_pointer;
+//		typedef iterator;
+//		typedef const_iterator;
+//		typedef reverse_iterator			std::reverse_iterator<iterator>;
+//		typedef const_reverse_iterator		std::reverse_iterator<const_iterator>;
+	private:
+		size_type		_list_size;
+		node			*_head;
+		node			*_tail;
+		allocator_type	_alloc;
+	public:
+		list(){
+			_list_size = 0;
+			_head = NULL;
+			_tail = NULL;
+			_alloc = Allocator;
+		}
+
+		explicit list( const Allocator& alloc ){
+			_list_size = 0;
+			_head = NULL;
+			_tail = NULL;
+			_alloc = alloc;
+		}
+
+		explicit list( size_type count, const T& value = T(), const Allocator& alloc = Allocator()){
+//			_list_size = count;
+		}
+
+		template< class InputIt >
+		list( InputIt first, InputIt last, const Allocator& alloc = Allocator() ){
+
+		}
+
+		list( const list& other ){
+
+		}
+
+//		list& operator=( const list& other ){
+//
+//			_head = other._head;
+//			_tail = other._tail;
+//			_list_size = other._list_size;
+//			return (*this);
+//		}
+
 		~list();
 
 	private:
-		friend class node;
 		class node{
 		public:
-			friend class list<T>;
-			friend class iterator;
-
 			T			*_data;
 			node		*_prev;
 			node		*_next;
-
 			node() {}
 			node(T data) : _data(data){}
 			~node() {}
