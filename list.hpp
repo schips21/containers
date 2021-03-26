@@ -22,10 +22,10 @@ namespace ft {
 		typedef Allocator					allocator_type;
 		typedef std::size_t					size_type;
 		typedef std::ptrdiff_t				difference_type;
-		typedef Allocator::reference		reference;
-		typedef Allocator::const_reference	const_reference;
-		typedef Allocator::pointer			pointer;
-		typedef Allocator::const_pointer	const_pointer;
+		typedef typename Allocator::reference		reference;
+		typedef typename Allocator::const_reference	const_reference;
+		typedef typename Allocator::pointer			pointer;
+		typedef typename Allocator::const_pointer	const_pointer;
 //		typedef iterator;
 //		typedef const_iterator;
 //		typedef reverse_iterator			std::reverse_iterator<iterator>;
@@ -40,9 +40,9 @@ namespace ft {
 //		Default constructor. Constructs an empty container with a default-constructed allocator.
 		list(){
 			_list_size = 0;
-			_head = NULL;
-			_tail = NULL;
-			_alloc = NULL;
+			_head = _tail = new node;
+//			_head = NULL;
+//			_tail = NULL;
 		}
 
 //		Constructs an empty container with the given allocator alloc.
