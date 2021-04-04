@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/schips/Desktop/git_containers/list.hpp
+iostream
+-
+
+/Users/schips/Desktop/git_containers/main.cpp
+list.hpp
+/Users/schips/Desktop/git_containers/list.hpp
+list
+-
+
