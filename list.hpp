@@ -207,6 +207,25 @@ namespace ft {
 			}
 		}
 
+		void swap( list& other ){
+			node * tmp;
+			tmp = this->_head;
+			this->_head = other._head;
+			other._head = tmp;
+
+			tmp = this->_tail;
+			this->_tail = other._tail;
+			other._tail = tmp;
+
+			tmp = this->_shadow;
+			this->_shadow = other._shadow;
+			other._shadow = tmp;
+
+			int tmp_size = this->_list_size;
+			this->_list_size = other._list_size;
+			other._list_size = tmp_size;
+		}
+
 	};
 }
 
