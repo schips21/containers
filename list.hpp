@@ -66,6 +66,7 @@ namespace ft {
 			_head->_next = _shadow;
 			_shadow->_next = _head;
 			for (int i = 1; i < _list_size; i++){
+//				убрать +i
 				tmp = new node(value);
 				_head->_next = tmp;
 				tmp->_prev = _head;
@@ -140,7 +141,8 @@ namespace ft {
 			else{
 				node * tmp;
 				tmp = new node(value);
-				_tail->_prev->_next = tmp;
+//				_tail->_prev->_next = tmp;
+				_tail->_next = tmp;
 				tmp->_prev = _tail;
 				_tail = tmp;
 				tmp->_next = _shadow;
@@ -149,10 +151,63 @@ namespace ft {
 		}
 
 		void pop_back(){
-
+			if (_list_size != 0){
+				_tail->_prev->_next = _shadow;
+				_shadow->_prev = _tail->_prev;
+				_tail = _tail->_prev;
+				_list_size--;
+				if (_list_size == 0){
+					_head = _tail;
+				}
+			}
 		}
 
-		};
+		void push_front( const T& value ){
+			_list_size++;
+			if (_head == _tail && _head == _shadow){
+				_head = _tail = new node(value);
+				_head->_prev = _shadow;
+				_head->_next = _shadow;
+				_shadow->_next = _head;
+				_shadow->_prev = _tail;
+			}
+			else{
+				node * tmp;
+				tmp = new node(value);
+				_head->_prev = tmp;
+				tmp->_next = _head;
+				_shadow->_next = tmp;
+				tmp->_prev = _shadow;
+				_head = tmp;
+			}
+		}
+
+		void pop_front(){
+			if (_list_size != 0){
+				_head->_next->_prev = _shadow;
+				_shadow->_next = _head->_next;
+				_head = _head->_next;
+				_list_size--;
+				if (_list_size == 0){
+					_tail = _head;
+				}
+			}
+		}
+
+		void resize( size_type count, T value = T() ){
+			if (_list_size > count){
+				while (_list_size != count){
+					this->pop_back();
+				}
+			}
+			else if (_list_size < count){
+				while (_list_size < count){
+					this->push_back(value);
+				}
+			}
+		}
+
+	};
 }
 
 
