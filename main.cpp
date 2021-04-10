@@ -14,6 +14,10 @@ int main(){
 	list_a.push_front(20);
 	list_a.push_front(100);
 	list_a.resize(8,5);
-	list_a.swap(list_b);
+	list_a.clear();
+	list_b.pop_back();
+	list_b.pop_back();
+	list_b.pop_back();
+	list_a.assign( 2, 4 );
 	return 0;
 }

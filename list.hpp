@@ -91,7 +91,29 @@ namespace ft {
 //
 //		}
 
-//		~list(){
+		~list(){
+			this->clear();
+		}
+
+//		list& operator=( const list& other ){
+//
+//		}
+
+		void assign( size_type count, const T& value ){
+			this->clear();
+			node * tmp;
+			if (count == 0){
+				_head = _tail = _shadow = new node;
+				return;
+			}
+			_head = _tail = _shadow = new node();
+			for (int i = 0; i < count; i++){
+				this->push_back(value);
+			}
+		}
+
+//		template< class InputIt >
+//		void assign( InputIt first, InputIt last ){
 //
 //		}
 
@@ -115,15 +137,24 @@ namespace ft {
 			return this->_list_size;
 		}
 
-//		size_type max_size() const{
-//
-//		}
+		size_type max_size() const{
+			return (std::numeric_limits<size_type>::max() / sizeof(node));
+		}
 
 
 //		MODIFIERS
-//		void clear(){
-//
-//		}
+		void clear(){
+			if (_head != NULL && _head != _shadow){
+				node * tmp;
+				tmp = _head;
+				while (tmp != _shadow){
+					tmp = tmp->_next;
+					delete tmp->_prev;
+				}
+			_head = _tail = _shadow = NULL;
+			}
+			_list_size = 0;
+		}
 
 //		Insert
 
