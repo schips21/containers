@@ -126,6 +126,21 @@ namespace ft {
 			return this->_tail->_data;
 		}
 
+//		ITERATORS
+		typedef class	iterator{
+		private:
+			node *_it;
+		public:
+			iterator(){
+				_it = NULL;
+			}
+			iterator(node *it){
+				_it = it;
+			}
+
+		}				iterator;
+
+
 //		CAPACITY
 		bool empty() const{
 			if (_tail == _head && _head == _shadow)
