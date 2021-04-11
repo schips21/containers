@@ -127,18 +127,103 @@ namespace ft {
 		}
 
 //		ITERATORS
-		typedef class	iterator{
-		private:
+		class it_general{
+		protected:
 			node *_it;
 		public:
-			iterator(){
+			it_general(){
 				_it = NULL;
 			}
-			iterator(node *it){
+			explicit it_general(node *it){
 				_it = it;
 			}
+//			it_general& operator=(const it_general& rhs) {
+//				if (this == rhs)
+//					return *this;
+//				this->_it = rhs._it;
+//				return *this;
+//			}
+//			it_general(const it_general& rhs){
+//				this = rhs;
+////				this->_it = rhs._it;
+//			}
+			~it_general(){}
+			bool operator==(const it_general& rhs) const{
+				return (this->_it == rhs._it);
+			}
+			bool operator!=(const it_general& rhs) const{
+				return (this->_it != rhs._it);
+			}
+			virtual T &operator*() const{
+				return (this->_it->_data);
+			}
+			T *operator->() const{
+				return (&(this->_it->_data));
+			}
+			friend class list<T>;
+		};
 
+		typedef class iterator : public it_general{
+		public:
+			iterator() : it_general(){}
+			explicit iterator(node *it) : it_general(it){}
+//			iterator(const iterator& rhs) : it_general(rhs){}
+			iterator& operator=(const iterator& rhs) {
+				if (this == rhs)
+					return *this;
+				this->_it = rhs._it;
+				return *this;
+			}
+			iterator(const iterator& rhs){
+//				this = rhs;
+				this->_it = rhs._it;
+			}
+			iterator& operator++() {
+				if (this->_it && this->_it->_next)
+					this->_it = this->_it->_next;
+				return *this;
+			}
+			iterator& operator--() {
+				if (this->_it && this->_it->_prev)
+					this->_it = this->_it->_prev;
+				return *this;
+			}
+			iterator operator++(int) {
+				iterator prev_it(*this);
+				if (this->_it && this->_it->_next)
+					this->_it = this->_it->_next;
+				return prev_it;
+			}
+			iterator operator--(int) {
+				iterator prev_it(*this);
+				if (this->_it && this->_it->_prev)
+					this->_it = this->_it->_prev;
+				return prev_it;
+			}
 		}				iterator;
+
+		typedef class const_iterator : public iterator {
+			const_iterator() : iterator(){}
+			explicit const_iterator(node *it) : iterator(it){}
+			const_iterator(const const_iterator& rhs) : iterator(rhs){}
+//			const_iterator& operator=(const const_iterator& rhs) {
+//				if (this == rhs)
+//					return *this;
+//				this->_it = rhs._it;
+//				return *this;
+//			}
+			const T &operator*() const{
+				return (this->_it->_data);
+			}
+		}				const_iterator;
+
+		iterator begin(){
+			return iterator(this->_head);
+		}
+
+		iterator end(){
+			return iterator(this->_shadow);
+		}
 
 
 //		CAPACITY
