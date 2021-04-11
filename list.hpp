@@ -137,16 +137,7 @@ namespace ft {
 			explicit it_general(node *it){
 				_it = it;
 			}
-//			it_general& operator=(const it_general& rhs) {
-//				if (this == rhs)
-//					return *this;
-//				this->_it = rhs._it;
-//				return *this;
-//			}
-//			it_general(const it_general& rhs){
-//				this = rhs;
-////				this->_it = rhs._it;
-//			}
+//			конструктор копирования и оператор = в классе итератор
 			~it_general(){}
 			bool operator==(const it_general& rhs) const{
 				return (this->_it == rhs._it);
@@ -154,7 +145,7 @@ namespace ft {
 			bool operator!=(const it_general& rhs) const{
 				return (this->_it != rhs._it);
 			}
-			virtual T &operator*() const{
+			T &operator*() const{
 				return (this->_it->_data);
 			}
 			T *operator->() const{
@@ -167,15 +158,13 @@ namespace ft {
 		public:
 			iterator() : it_general(){}
 			explicit iterator(node *it) : it_general(it){}
-//			iterator(const iterator& rhs) : it_general(rhs){}
 			iterator& operator=(const iterator& rhs) {
-				if (this == rhs)
+				if (*this == rhs)
 					return *this;
 				this->_it = rhs._it;
 				return *this;
 			}
 			iterator(const iterator& rhs){
-//				this = rhs;
 				this->_it = rhs._it;
 			}
 			iterator& operator++() {
@@ -203,15 +192,10 @@ namespace ft {
 		}				iterator;
 
 		typedef class const_iterator : public iterator {
+		public:
 			const_iterator() : iterator(){}
 			explicit const_iterator(node *it) : iterator(it){}
-			const_iterator(const const_iterator& rhs) : iterator(rhs){}
-//			const_iterator& operator=(const const_iterator& rhs) {
-//				if (this == rhs)
-//					return *this;
-//				this->_it = rhs._it;
-//				return *this;
-//			}
+			const_iterator(const iterator& rhs) : iterator(rhs){}
 			const T &operator*() const{
 				return (this->_it->_data);
 			}
@@ -221,7 +205,15 @@ namespace ft {
 			return iterator(this->_head);
 		}
 
+		const_iterator begin() const{
+			return iterator(this->_head);
+		}
+
 		iterator end(){
+			return iterator(this->_shadow);
+		}
+
+		const_iterator end() const{
 			return iterator(this->_shadow);
 		}
 
