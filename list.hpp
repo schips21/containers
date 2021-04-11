@@ -201,12 +201,69 @@ namespace ft {
 			}
 		}				const_iterator;
 
+		typedef class reverse_iterator : public it_general{
+		public:
+			reverse_iterator() : reverse_iterator(){}
+			explicit reverse_iterator(node *it) : it_general(it){}
+			reverse_iterator& operator=(const reverse_iterator& rhs) {
+				if (*this == rhs)
+					return *this;
+				this->_it = rhs._it;
+				return *this;
+			}
+			reverse_iterator(const reverse_iterator& rhs){
+				this->_it = rhs._it;
+			}
+			reverse_iterator& operator++() {
+				if (this->_it && this->_it->_prev)
+					this->_it = this->_it->_prev;
+				return *this;
+			}
+			reverse_iterator& operator--() {
+				if (this->_it && this->_it->_next)
+					this->_it = this->_it->next;
+				return *this;
+			}
+			reverse_iterator operator++(int) {
+				reverse_iterator prev_it(*this);
+				if (this->_it && this->_it->_prev)
+					this->_it = this->_it->_prev;
+				return prev_it;
+			}
+			reverse_iterator operator--(int) {
+				reverse_iterator prev_it(*this);
+				if (this->_it && this->_it->_next)
+					this->_it = this->_it->_next;
+				return prev_it;
+			}
+		}				reverse_iterator;
+
+		typedef class const_reverse_iterator : public iterator {
+		public:
+			const_reverse_iterator() : reverse_iterator(){}
+			explicit const_reverse_iterator(node *it) : reverse_iterator(it){}
+			const_reverse_iterator(const reverse_iterator& rhs){
+				this->_it = rhs._it;
+			}
+			const T &operator*() const{
+				return (this->_it->_data);
+			}
+		}				const_reverse_iterator;
+
 		iterator begin(){
 			return iterator(this->_head);
 		}
 
 		const_iterator begin() const{
-			return iterator(this->_head);
+			return const_iterator(this->_head);
+		}
+
+		reverse_iterator rbegin(){
+			return reverse_iterator(this->_tail);
+		}
+
+		const_reverse_iterator rbegin() const{
+			return const_reverse_iterator(this->_tail);
 		}
 
 		iterator end(){
@@ -214,7 +271,15 @@ namespace ft {
 		}
 
 		const_iterator end() const{
-			return iterator(this->_shadow);
+			return const_iterator(this->_shadow);
+		}
+
+		reverse_iterator rend(){
+			return reverse_iterator(this->_head->_prev);
+		}
+
+		const_reverse_iterator rend() const{
+			return const_reverse_iterator(this->_head->_prev);
 		}
 
 

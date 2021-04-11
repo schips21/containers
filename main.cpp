@@ -7,13 +7,16 @@ int main(){
 	list_def.push_front(50);
 	list_def.push_front(20);
 	list_def.push_front(100);
-	list_def.resize(8,5);
+//	list_def.resize(8,5);
 	int h_def;
 	int q_def = 0;
 	for (std::list<int>::iterator it = list_def.begin(); it != list_def.end(); it++){
 		h_def = *it;
 		q_def++;
 	}
+
+//	std::list<int>::iterator it = list_def.end();
+//	h_def = *it;
 
 //	std::list<int>::const_iterator it2 = list_def.begin();
 //	std::list<int>::iterator it3 = list_def.end();
@@ -27,12 +30,9 @@ int main(){
 	list_a.resize(8,5);
 	int h;
 	int q = 0;
-	for (ft::list<int>::const_iterator it = list_a.begin(); it != list_a.end(); it++){
+	for (ft::list<int>::const_reverse_iterator it = list_a.rbegin(); it != list_a.rend(); it++){
 		h = *it;
 		q++;
 	}
-	ft::list<int>::const_iterator it2 = list_a.begin();
-	ft::list<int>::iterator it3 = list_a.end();
-	it2 = it3;
 	return 0;
 }
