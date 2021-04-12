@@ -28,12 +28,15 @@ int main(){
 	list_a.push_front(20);
 	list_a.push_front(100);
 	list_a.resize(8,5);
-//	int h;
-//	int q = 0;
-//	for (ft::list<int>::const_reverse_iterator it = list_a.rbegin(); it != list_a.rend(); it++){
-//		h = *it;
-//		q++;
-//	}
+	ft::list<int>::iterator it;
+	for (it = list_a.begin(); it != list_a.end(); it++){
+		continue;
+	}
+	list_a.push_back(18);
+	ft::list<int> list_b;
+	it = list_b.begin();
+//	it--;
+	list_b.insert(it, -5);
 
 	std::cout << list_a.back();
 	return 0;

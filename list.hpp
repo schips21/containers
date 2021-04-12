@@ -397,6 +397,24 @@ namespace ft {
 
 //		Insert
 
+		iterator insert( iterator pos, const T& value ){
+			if (pos == this->end()){
+				this->push_back(value);
+				return this->end();
+			}
+			if (pos == this->begin()){
+				this->push_front(value);
+				return this->begin();
+			}
+			node * tmp = new node(value);
+			tmp->_next = pos._it->_prev->_next;
+			tmp->_prev = pos._it->_prev;
+			pos._it->_prev->_next = tmp;
+			pos._it->_prev = tmp;
+			_list_size++;
+			return iterator(tmp);
+		}
+
 //		Erase
 
 		void push_back( const T& value ){
