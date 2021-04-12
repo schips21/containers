@@ -4,6 +4,12 @@
 #include <iostream>
 
 namespace ft {
+
+	template<bool B, class T = void>
+	struct enable_if {};
+	template<class T>
+	struct enable_if<true, T> { typedef T type; };
+
 	template<typename T, class Allocator = std::allocator<T>>
 	class list {
 	private:
@@ -30,6 +36,8 @@ namespace ft {
 //		typedef const_iterator;
 //		typedef reverse_iterator			std::reverse_iterator<iterator>;
 //		typedef const_reverse_iterator		std::reverse_iterator<const_iterator>;
+
+
 
 	private:
 		size_type		_list_size;
@@ -81,10 +89,25 @@ namespace ft {
 		}
 
 //		Constructs the container with the contents of the range [first, last).
-//		template< class InputIt >
-//		list( InputIt first, InputIt last, const Allocator& alloc = Allocator() ){
-//
-//		}
+		template< class InputIt >
+		list( InputIt first, InputIt last, const Allocator& alloc = Allocator() , typename enable_if<!std::numeric_limits<InputIt>::is_specialized>::type * = 0){
+			_list_size = 0;
+			if (first == last){
+				_head = _tail = _shadow = new node;
+				return;
+			}
+			_shadow = new node();
+			_head = _tail = new node(*first);
+			_head->_prev = _shadow;
+			_head->_next = _shadow;
+			_shadow->_next = _head;
+			_list_size++;
+			first++;
+			while(first != last){
+				this->push_back(*first);
+				first++;
+			}
+		}
 
 //		Copy constructor. Constructs the container with the copy of the contents of other, the allocator is obtained as if by calling
 //		list( const list& other ){

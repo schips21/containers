@@ -28,11 +28,13 @@ int main(){
 	list_a.push_front(20);
 	list_a.push_front(100);
 	list_a.resize(8,5);
-	int h;
-	int q = 0;
-	for (ft::list<int>::const_reverse_iterator it = list_a.rbegin(); it != list_a.rend(); it++){
-		h = *it;
-		q++;
-	}
+//	int h;
+//	int q = 0;
+//	for (ft::list<int>::const_reverse_iterator it = list_a.rbegin(); it != list_a.rend(); it++){
+//		h = *it;
+//		q++;
+//	}
+
+	ft::list<int> list_b(list_a.begin(), list_a.end());
 	return 0;
 }
