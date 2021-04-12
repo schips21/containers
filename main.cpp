@@ -35,6 +35,6 @@ int main(){
 //		q++;
 //	}
 
-	ft::list<int> list_b(list_a.begin(), list_a.end());
+	std::cout << list_a.back();
 	return 0;
 }

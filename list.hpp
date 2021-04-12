@@ -80,7 +80,6 @@ namespace ft {
 				tmp->_prev = _head;
 				_head = tmp;
 				_head->_next = _shadow;
-
 			}
 			_shadow->_prev = _head;
 			_head = _shadow->_next;
@@ -110,17 +109,36 @@ namespace ft {
 		}
 
 //		Copy constructor. Constructs the container with the copy of the contents of other, the allocator is obtained as if by calling
-//		list( const list& other ){
-//
-//		}
+		list( const list& other ){
+			*this = other;
+		}
 
 		~list(){
 			this->clear();
 		}
 
-//		list& operator=( const list& other ){
-//
-//		}
+		list& operator=( const list& other ){
+			this->_alloc = other._alloc;
+			typename list<T>::iterator first = other.begin();
+			typename list<T>::iterator last = other.end();
+			_list_size = 0;
+			if (first == last){
+				_head = _tail = _shadow = new node;
+				return *this;
+			}
+			_shadow = new node();
+			_head = _tail = new node(*first);
+			_head->_prev = _shadow;
+			_head->_next = _shadow;
+			_shadow->_next = _head;
+			_list_size++;
+			first++;
+			while(first != last){
+				this->push_back(*first);
+				first++;
+			}
+			return *this;
+		}
 
 		void assign( size_type count, const T& value ){
 			this->clear();
@@ -135,19 +153,60 @@ namespace ft {
 			}
 		}
 
-//		template< class InputIt >
-//		void assign( InputIt first, InputIt last ){
-//
-//		}
+		template< class InputIt >
+		void assign( InputIt first, InputIt last ){
+			this->clear();
+			_list_size = 0;
+			if (first == last){
+				_head = _tail = _shadow = new node;
+				return;
+			}
+			_shadow = new node();
+			_head = _tail = new node(*first);
+			_head->_prev = _shadow;
+			_head->_next = _shadow;
+			_shadow->_next = _head;
+			_list_size++;
+			first++;
+			while(first != last){
+				this->push_back(*first);
+				first++;
+			}
+		}
+
+		allocator_type get_allocator() const{
+			return _alloc;
+		}
 
 //		ELEMENT ACCESS
-		value_type front(){
-			return this->_head->_data;
+		reference front(){
+//			if(this->_head != NULL)
+				return this->_head->_data;
 		}
 
-		value_type back(){
-			return this->_tail->_data;
+		const_reference front() const{
+//			if(this->_head != NULL)
+				return this->_head;
 		}
+
+		reference back(){
+//			if (this->_tail != NULL)
+				return this->_tail->_data;
+		}
+
+		const_reference back() const{
+//			if (this->_tail != NULL)
+				return this->_tail->_data;
+		}
+
+
+//		value_type front(){
+//			return this->_head->_data;
+//		}
+
+//		value_type back(){
+//			return this->_tail->_data;
+//		}
 
 //		ITERATORS
 		class it_general{
