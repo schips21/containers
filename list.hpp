@@ -415,6 +415,35 @@ namespace ft {
 			return iterator(tmp);
 		}
 
+		void insert( iterator pos, size_type count, const T& value ){
+			if (count == 0)
+				return;
+			if (pos == this->end()){
+				for(int i = 0; i < count; i++)
+					this->push_back(value);
+				return;
+			}
+			if (pos == this->begin()){
+				for(int i = 0; i < count; i++)
+					this->push_front(value);
+				return;
+			}
+			for (int i = 0; i < count; i++){
+				node * tmp = new node(value);
+				tmp->_next = pos._it->_prev->_next;
+				tmp->_prev = pos._it->_prev;
+				pos._it->_prev->_next = tmp;
+				pos._it->_prev = tmp;
+				_list_size++;
+			}
+//			return pos;
+		}
+
+//		template< class InputIt >
+//		void insert( iterator pos, InputIt first, InputIt last){
+//
+//		}
+
 //		Erase
 
 		void push_back( const T& value ){

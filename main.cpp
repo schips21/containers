@@ -33,10 +33,10 @@ int main(){
 		continue;
 	}
 	list_a.push_back(18);
-	ft::list<int> list_b;
-	it = list_b.begin();
-//	it--;
-	list_b.insert(it, -5);
+	it = list_a.end();
+	it--;
+	it--;
+	list_a.insert(it, 2, -5);
 
 	std::cout << list_a.back();
 	return 0;
