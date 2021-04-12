@@ -439,10 +439,19 @@ namespace ft {
 //			return pos;
 		}
 
-//		template< class InputIt >
-//		void insert( iterator pos, InputIt first, InputIt last){
-//
-//		}
+		template< class InputIt >
+		void insert( iterator pos, InputIt first, InputIt last, typename enable_if<!std::numeric_limits<InputIt>::is_specialized>::type * = 0){
+			if (first == last)
+				return;
+			for (; first != last; first++){
+				node * tmp = new node(*first);
+				tmp->_next = pos._it->_prev->_next;
+				tmp->_prev = pos._it->_prev;
+				pos._it->_prev->_next = tmp;
+				pos._it->_prev = tmp;
+				_list_size++;
+			}
+		}
 
 //		Erase
 
