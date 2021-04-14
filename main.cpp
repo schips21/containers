@@ -30,14 +30,17 @@ int main(){
 	list_a.resize(8,5);
 	list_a.push_back(18);
 	ft::list<int> list_b;
+	list_b.push_front(6);
+	list_b.push_front(1);
 	ft::list<int>::iterator it = list_b.begin();
+	it++;
 	ft::list<int>::iterator it1 = list_a.begin();
 	it1++;
 	it1++;
 	ft::list<int>::iterator it2 = it1;
 	it2++;
 	it2++;
-	list_a.insert(it, it1, it2);
+	list_b.insert(it, it1, it2);
 
 	std::cout << list_a.back();
 	return 0;

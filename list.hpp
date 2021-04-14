@@ -50,6 +50,7 @@ namespace ft {
 		list(){
 			_list_size = 0;
 			_head = _tail = _shadow = new node;
+			_head->_prev = _head->_next = _shadow;
 		}
 
 //		Constructs an empty container with the given allocator alloc.
@@ -89,7 +90,7 @@ namespace ft {
 
 //		Constructs the container with the contents of the range [first, last).
 		template< class InputIt >
-		list( InputIt first, InputIt last, const Allocator& alloc = Allocator() , typename enable_if<!std::numeric_limits<InputIt>::is_specialized>::type * = 0){
+		list( InputIt first, InputIt last, const Allocator& alloc = Allocator(), typename enable_if<!std::numeric_limits<InputIt>::is_specialized>::type * = 0){
 			_list_size = 0;
 			if (first == last){
 				_head = _tail = _shadow = new node;
@@ -443,8 +444,17 @@ namespace ft {
 		void insert( iterator pos, InputIt first, InputIt last, typename enable_if<!std::numeric_limits<InputIt>::is_specialized>::type * = 0){
 			if (first == last)
 				return;
+			node * tmp;
 			for (; first != last; first++){
-				node * tmp = new node(*first);
+				if (pos == this->begin()){
+					this->push_front(*first);
+					continue;
+				}
+				if (pos == this->end()){
+					this->push_back(*first);
+					continue;
+				}
+				tmp = new node(*first);
 				tmp->_next = pos._it->_prev->_next;
 				tmp->_prev = pos._it->_prev;
 				pos._it->_prev->_next = tmp;
