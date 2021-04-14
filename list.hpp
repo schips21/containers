@@ -484,6 +484,17 @@ namespace ft {
 			return iterator(pos._it->_next);
 		}
 
+		iterator erase( iterator first, iterator last ){
+			if (first == last)
+				return last;
+			typename list<value_type>::iterator it;
+			while (first != last){
+				it = this->erase(first);
+				first++;
+			}
+			return it;
+		}
+
 		void push_back( const T& value ){
 			_list_size++;
 			if (_head == _tail && _head == _shadow){

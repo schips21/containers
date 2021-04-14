@@ -15,12 +15,17 @@ int main(){
 		q_def++;
 	}
 	list_def.clear();
-	list_def.push_front(7);
-	list_def.push_front(10);
-	list_def.push_front(15);
+	list_def.push_back(1);
+	list_def.push_back(2);
+	list_def.push_back(3);
+	list_def.push_back(4);
+	list_def.push_back(5);
 	std::list<int>::iterator it_d = list_def.begin();
-	it_d++;
-	it_d = list_def.erase(it_d);
+	it_d++; //2
+	std::list<int>::iterator it_dl = list_def.end();
+	it_dl--;
+	it_dl--; //4
+	it_d = list_def.erase(it_d, it_dl);
 	int g = *it_d;
 
 //	std::list<int>::iterator it = list_def.end();
@@ -50,7 +55,12 @@ int main(){
 	it2++;
 	list_b.insert(it, it1, it2);
 
-	it = list_b.erase(++list_b.begin());
+	it = list_b.begin();
+	it++;
+	it1 = list_b.end();
+	it1--;
+	it1--; //10
+	it = list_b.erase(it, it1);
 
 	std::cout << list_a.back();
 	return 0;
