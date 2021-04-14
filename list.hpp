@@ -465,6 +465,25 @@ namespace ft {
 
 //		Erase
 
+		iterator erase( iterator pos ){
+//			в стандартном контейнере для этих кейсов сега
+			if (this->empty() || pos == this->end())
+				return pos;
+			if (pos == --(this->end()))
+			{
+				this->pop_back();
+				return this->end();
+			}
+			if (pos == this->begin()){
+				this->pop_front();
+				return this->begin();
+			}
+			pos._it->_prev->_next = pos._it->_next;
+			pos._it->_next->_prev = pos._it->_prev;
+			_list_size--;
+			return iterator(pos._it->_next);
+		}
+
 		void push_back( const T& value ){
 			_list_size++;
 			if (_head == _tail && _head == _shadow){

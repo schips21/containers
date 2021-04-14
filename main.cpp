@@ -14,6 +14,14 @@ int main(){
 		h_def = *it;
 		q_def++;
 	}
+	list_def.clear();
+	list_def.push_front(7);
+	list_def.push_front(10);
+	list_def.push_front(15);
+	std::list<int>::iterator it_d = list_def.begin();
+	it_d++;
+	it_d = list_def.erase(it_d);
+	int g = *it_d;
 
 //	std::list<int>::iterator it = list_def.end();
 //	h_def = *it;
@@ -41,6 +49,8 @@ int main(){
 	it2++;
 	it2++;
 	list_b.insert(it, it1, it2);
+
+	it = list_b.erase(++list_b.begin());
 
 	std::cout << list_a.back();
 	return 0;
