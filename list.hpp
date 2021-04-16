@@ -321,7 +321,7 @@ namespace ft {
 			}
 		}				reverse_iterator;
 
-		typedef class const_reverse_iterator : public iterator {
+		typedef class const_reverse_iterator : public reverse_iterator {
 		public:
 			const_reverse_iterator() : reverse_iterator(){}
 			explicit const_reverse_iterator(node *it) : reverse_iterator(it){}
@@ -674,6 +674,17 @@ namespace ft {
 
 			this->_list_size++;
 			other._list_size--;
+		}
+
+		void splice( const_iterator pos, list& other,
+			 const_iterator first, const_iterator last){
+			const_iterator tmp;
+			while (first != last){
+				tmp = first;
+				tmp++;
+				this->splice(pos, other, first);
+				first = tmp;
+			}
 		}
 
 	};

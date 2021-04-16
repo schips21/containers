@@ -51,22 +51,24 @@ int main(){
 	ft::list<int> list_b;
 
 	list_a.push_back(1);
-	list_a.push_back(5);
+	list_a.push_back(2);
 
-	list_b.push_back(2);
-	list_b.push_back(4);
+	list_b.push_back(5);
+	list_b.push_back(6);
+	list_b.push_back(7);
+
 
 //	list_a.merge(list_b);
 
 
 	ft::list<int>::const_iterator it = list_a.begin();
-//	it++;
+	it++;
 	ft::list<int>::const_iterator it1 = list_b.begin();
-//	it1++;
+	it1++;
 //	list_a.splice(it, list_b,it1);
-	it = list_a.begin();
-	it1 = list_b.begin();
-	list_a.splice(it, list_b);
+//	it = list_a.begin();
+//	it1 = list_b.begin();
+	list_a.splice(it, list_b, it1, list_b.end());
 //	it = list_b.erase(it, it1);
 
 	std::cout << list_a.back();
