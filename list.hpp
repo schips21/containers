@@ -639,6 +639,16 @@ namespace ft {
 //
 //		}
 
+
+		void splice( const_iterator pos, list& other ){
+			const_iterator it = other.begin();
+			const_iterator ite = other.end();
+			while (it != ite){
+				this->splice(pos, other, it);
+				it = other.begin();
+			}
+		}
+
 //		Transfers the element pointed to by it from other into *this. The element is inserted before the element pointed to by pos
 		void splice( const_iterator pos, list& other, const_iterator it ){
 			pos._it->_prev->_next = it._it;

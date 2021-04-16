@@ -63,10 +63,10 @@ int main(){
 //	it++;
 	ft::list<int>::const_iterator it1 = list_b.begin();
 //	it1++;
-	list_a.splice(it, list_b,it1);
+//	list_a.splice(it, list_b,it1);
 	it = list_a.begin();
 	it1 = list_b.begin();
-	list_a.splice(it, list_b,it1);
+	list_a.splice(it, list_b);
 //	it = list_b.erase(it, it1);
 
 	std::cout << list_a.back();
