@@ -592,6 +592,80 @@ namespace ft {
 			other._list_size = tmp_size;
 		}
 
+//		Operations
+
+//	private:
+//		static bool my_cmp(const value_type &a, const value_type &b){
+//			return (a < b);
+//		}
+//
+//	public:
+//		void merge( list& other ){
+//			this->template merge(other, my_cmp);
+//		}
+//
+//		template <class Compare>
+//		void merge( list& other, Compare comp ){
+////			if (*this == other)
+////				return;
+//			typename ft::list<value_type>::iterator it_this = this->begin();
+//			typename ft::list<value_type>::iterator it_other = other.begin();
+//			typename ft::list<value_type>::iterator ite_this = this->end();
+//			typename ft::list<value_type>::iterator ite_other = other.end();
+//			while (it_other != ite_other && other._list_size > 0){
+//				if (comp(*it_other, *it_this) == true || it_this == ite_this){
+//					it_other._it->_next->_prev = it_other._it->_prev;
+//					it_other._it->_prev->_next = it_other._it->_next;
+//					if (it_other == other.begin())
+//						other._head = other._head->_next;
+//					other._list_size--;
+//
+//					it_this._it->_prev->_next = it_other._it;
+//					it_this._it->_prev = it_other._it;
+//					it_this._it->_prev->_prev = it_this._it->_prev;
+//					it_this._it->_prev->_next = it_this._it;
+////					it_other._it->_prev = it_this._it->_prev;
+////					it_other._it->_next = it_this._it;
+//					it_other++;
+//					this->_list_size++;
+//				}
+//				else{
+//					it_this++;
+//				}
+//			}
+//		}
+
+//		void splice( const_iterator pos, list& other ){
+//
+//		}
+
+//		Transfers the element pointed to by it from other into *this. The element is inserted before the element pointed to by pos
+		void splice( const_iterator pos, list& other, const_iterator it ){
+			pos._it->_prev->_next = it._it;
+			pos._it->_next->_prev = pos._it;
+
+			if (it._it == other._head){
+				other._head = other._head->_next;
+			}
+			if (it._it == other._tail){
+				other._tail = other._tail->_prev;
+			}
+			it._it->_prev->_next = it._it->_next;
+			it._it->_next->_prev = it._it->_prev;
+
+
+			it._it->_prev = pos._it->_prev;
+			it._it->_next = pos._it;
+			it._it->_next->_prev = it._it;
+
+			if (pos._it == this->_head){
+				this->_head = this->_head->_prev;
+			}
+
+			this->_list_size++;
+			other._list_size--;
+		}
+
 	};
 }
 
