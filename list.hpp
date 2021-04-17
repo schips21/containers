@@ -689,6 +689,17 @@ namespace ft {
 			}
 		}
 
+		void remove( const T& value ){
+			iterator it = this->begin();
+			iterator ite = this->end();
+			while (it != ite){
+				if (value == it._it->_data){
+					this->erase(it);
+				}
+				it++;
+			}
+		}
+
 	};
 }
 

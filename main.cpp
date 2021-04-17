@@ -59,6 +59,7 @@ int main(){
 
 
 	list_a.merge(list_b);
+	list_a.remove(9);
 
 
 //	ft::list<int>::const_iterator it = list_a.begin();
