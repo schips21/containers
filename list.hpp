@@ -700,6 +700,18 @@ namespace ft {
 			}
 		}
 
+		template< class UnaryPredicate >
+		void remove_if( UnaryPredicate p ){
+			iterator it = this->begin();
+			iterator ite = this->end();
+			while (it != ite){
+				if (p(it._it->_data) == true){
+					this->erase(it);
+				}
+				it++;
+			}
+		}
+
 	};
 }
 

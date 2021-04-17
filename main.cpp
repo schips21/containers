@@ -1,6 +1,12 @@
 #include "list.hpp"
 #include <list>
 
+bool my_pred(int data){
+	if (data % 2 == 0)
+		return true;
+	return false;
+}
+
 int main(){
 	std::list<int> list_def;
 	list_def.push_back(1);
@@ -59,7 +65,7 @@ int main(){
 
 
 	list_a.merge(list_b);
-	list_a.remove(9);
+//	list_a.remove_if(my_pred);
 
 
 //	ft::list<int>::const_iterator it = list_a.begin();
