@@ -743,6 +743,24 @@ namespace ft {
 			}
 		}
 
+		template< class BinaryPredicate >
+		void unique( BinaryPredicate p ){
+			iterator it = this->begin();
+			iterator ite = this->end();
+			iterator it_tmp;
+			while (it != ite){
+				it_tmp = it;
+				it_tmp++;
+				while (it_tmp != ite){
+					if (p(it._it->_data, it_tmp._it->_data) == true){
+						this->erase(it_tmp);
+					}
+					it_tmp++;
+				}
+				it++;
+			}
+		}
+
 	};
 }
 
