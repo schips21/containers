@@ -763,6 +763,29 @@ namespace ft {
 			}
 		}
 
+		void sort(){
+			iterator it = this->begin();
+			iterator ite = this->end();
+			iterator it_tmp;
+			node *tmp_node;
+			while (it != ite){
+				it_tmp = it;
+				while (it_tmp != ite){
+					if (it_tmp._it->_data > it_tmp._it->_next->_data){
+						//swap the nodes
+						tmp_node = it_tmp._it;
+						tmp_node->_prev = it_tmp._it->_prev;
+						tmp_node->_next = it_tmp._it->_next;
+
+						it_tmp._it = it_tmp._it->_next;
+						it_tmp._it->_next = tmp_node;
+					}
+					it_tmp++;
+				}
+				it++;
+			}
+		}
+
 	};
 
 	template< class T, class Alloc >

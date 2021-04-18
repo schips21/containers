@@ -94,8 +94,8 @@ int main(){
 
 	list_a.clear();
 	list_b.clear();
-	list_a.push_back(1);
-	list_a.push_back(2);
+	list_a.push_back(15);
+	list_a.push_back(7);
 	list_a.push_back(3);
 
 	list_b.push_back(10);
@@ -107,11 +107,10 @@ int main(){
 		t = true;
 	else
 		t = false;
-	list_a.clear();
 
-	ft::swap(list_a,list_b);
+//	ft::swap(list_a,list_b);
 
-
+	list_a.sort();
 
 	std::cout << list_a.back();
 	return 0;
