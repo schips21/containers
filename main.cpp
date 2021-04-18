@@ -66,6 +66,8 @@ int main(){
 
 	list_a.merge(list_b);
 	list_a.unique();
+
+	ft::list<int> list_c(list_a);
 //	list_a.remove_if(my_pred);
 
 
@@ -78,6 +80,18 @@ int main(){
 ////	it1 = list_b.begin();
 //	list_a.splice(it, list_b, it1, list_b.end());
 ////	it = list_b.erase(it, it1);
+
+	bool t;
+	if (list_a == list_c)
+		t = true;
+	else
+		t = false;
+	list_c.pop_back();
+	list_c.push_back(45645);
+	if (list_a == list_c)
+		t = true;
+	else
+		t = false;
 
 	std::cout << list_a.back();
 	return 0;
