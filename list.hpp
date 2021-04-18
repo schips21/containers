@@ -819,6 +819,14 @@ namespace ft {
 		return false;
 	}
 
+	template< class T, class Alloc >
+	bool operator<=( const list<T,Alloc>& lhs,
+					 const list<T,Alloc>& rhs ){
+		if (lhs == rhs || lhs < rhs)
+			return true;
+		return false;
+	}
+
 
 }
 
