@@ -65,6 +65,7 @@ int main(){
 
 
 	list_a.merge(list_b);
+	list_a.reverse();
 //	list_a.remove_if(my_pred);
 
 

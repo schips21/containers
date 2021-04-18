@@ -712,6 +712,24 @@ namespace ft {
 			}
 		}
 
+		void reverse(){
+			node * tmp = this->_head;
+			node * tmp_next;
+			while (tmp != _shadow){
+				tmp_next = tmp->_next;
+				tmp->_next = tmp->_prev;
+				tmp->_prev = tmp_next;
+				tmp = tmp->_prev;
+			}
+			tmp_next = _shadow->_next;
+			_shadow->_next = _head = _shadow->_prev;
+			_shadow->_prev = _tail = tmp_next;
+		}
+
+		void unique(){
+			
+		}
+
 	};
 }
 
