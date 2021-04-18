@@ -11,17 +11,20 @@ int main(){
 	std::list<int> list_def;
 	list_def.push_back(1);
 	list_def.push_back(2);
-	list_def.push_back(3);
-	list_def.push_back(4);
-	list_def.push_back(5);
-	std::list<int>::const_iterator it_d = list_def.begin();
-	it_d++; //2
+//	list_def.push_back(3);
 	std::list<int> list_def2;
-	list_def2.push_back(10);
-	list_def2.push_back(20);
-	std::list<int>::const_iterator it2 = list_def2.begin();
-	it2++;
-	list_def.splice( it_d, list_def2, it2);
+	list_def2.push_back(1);
+	list_def2.push_back(2);
+	list_def2.push_back(3);
+	bool f;
+	if (list_def < list_def2)
+		f = true;
+	else
+		f = false;
+
+//	std::list<int>::const_iterator it2 = list_def2.begin();
+//	it2++;
+//	list_def.splice( it_d, list_def2, it2);
 //	it_d = list_def.erase(it_d, it_dl);
 //	int g = *it_d;
 
@@ -88,10 +91,24 @@ int main(){
 		t = false;
 	list_c.pop_back();
 	list_c.push_back(45645);
-	if (list_a != list_c)
+
+	list_a.clear();
+	list_b.clear();
+	list_a.push_back(1);
+	list_a.push_back(2);
+	list_a.push_back(3);
+
+	list_b.push_back(1);
+	list_b.push_back(2);
+	list_b.push_back(3);
+
+
+	if (list_a < list_b)
 		t = true;
 	else
 		t = false;
+
+
 
 	std::cout << list_a.back();
 	return 0;

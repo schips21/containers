@@ -391,7 +391,9 @@ namespace ft {
 					tmp = tmp->_next;
 					delete tmp->_prev;
 				}
-			_head = _tail = _shadow = NULL;
+//			_head = _tail = _shadow = NULL;
+			_shadow = new node();
+			_head = _tail = _shadow;
 			}
 			_list_size = 0;
 		}
@@ -796,6 +798,28 @@ namespace ft {
 		}
 		return false;
 	}
+
+	template< class T, class Alloc >
+	bool operator<( const list<T,Alloc>& lhs,
+					const list<T,Alloc>& rhs ){
+		typename ft::list<T>::const_iterator it_lhs = lhs.begin();
+		typename ft::list<T>::const_iterator it_rhs = rhs.begin();
+		typename ft::list<T>::const_iterator ite_lhs = lhs.end();
+		typename ft::list<T>::const_iterator ite_rhs = rhs.end();
+		while (it_lhs != ite_lhs && it_rhs != ite_rhs){
+			if (*it_lhs > *it_rhs)
+				return false;
+			if (*it_lhs < *it_rhs)
+				return true;
+			it_lhs++;
+			it_rhs++;
+		}
+		if (it_lhs == ite_lhs && it_rhs != ite_rhs)
+			return true;
+		return false;
+	}
+
+
 }
 
 
