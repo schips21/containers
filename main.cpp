@@ -60,12 +60,12 @@ int main(){
 	list_a.push_back(9);
 
 	list_b.push_back(5);
-	list_b.push_back(8);
+	list_b.push_back(5);
 	list_b.push_back(10);
 
 
 	list_a.merge(list_b);
-	list_a.reverse();
+	list_a.unique();
 //	list_a.remove_if(my_pred);
 
 
