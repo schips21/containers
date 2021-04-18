@@ -103,7 +103,7 @@ int main(){
 	list_b.push_back(3);
 
 
-	if (list_a <= list_b)
+	if (list_a >= list_b)
 		t = true;
 	else
 		t = false;
