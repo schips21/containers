@@ -98,15 +98,18 @@ int main(){
 	list_a.push_back(2);
 	list_a.push_back(3);
 
-	list_b.push_back(1);
-	list_b.push_back(2);
-	list_b.push_back(3);
+	list_b.push_back(10);
+	list_b.push_back(15);
+//	list_b.push_back(3);
 
 
 	if (list_a >= list_b)
 		t = true;
 	else
 		t = false;
+	list_a.clear();
+
+	ft::swap(list_a,list_b);
 
 
 

@@ -854,6 +854,12 @@ namespace ft {
 			return true;
 		return false;
 	}
+
+	template< class T, class Alloc >
+	void swap( list<T,Alloc>& lhs,
+			   list<T,Alloc>& rhs ){
+		lhs.swap(rhs);
+	}
 }
 
 
