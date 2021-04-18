@@ -82,13 +82,13 @@ int main(){
 ////	it = list_b.erase(it, it1);
 
 	bool t;
-	if (list_a == list_c)
+	if (list_a != list_c)
 		t = true;
 	else
 		t = false;
 	list_c.pop_back();
 	list_c.push_back(45645);
-	if (list_a == list_c)
+	if (list_a != list_c)
 		t = true;
 	else
 		t = false;

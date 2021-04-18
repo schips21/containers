@@ -779,6 +779,23 @@ namespace ft {
 		}
 		return true;
 	}
+
+	template< class T, class Alloc >
+	bool operator!=( const list<T,Alloc>& lhs,
+					 const list<T,Alloc>& rhs ){
+		if (lhs.size() != rhs.size())
+			return true;
+		typename ft::list<T>::const_iterator it_lhs = lhs.begin();
+		typename ft::list<T>::const_iterator it_rhs = rhs.begin();
+		typename ft::list<T>::const_iterator ite_lhs = lhs.end();
+		while (it_lhs != ite_lhs){
+			if (*it_lhs != *it_rhs)
+				return true;
+			it_lhs++;
+			it_rhs++;
+		}
+		return false;
+	}
 }
 
 
