@@ -10,7 +10,7 @@ namespace ft {
 	template<class T>
 	struct enable_if<true, T> { typedef T type; };
 
-	template<typename T, class Allocator = std::allocator<T>>
+	template<typename T, class Allocator = std::allocator<T> >
 	class list {
 	private:
 		class node{
@@ -736,9 +736,9 @@ namespace ft {
 				it_tmp = it;
 				it_tmp++;
 				while (it_tmp != ite){
-					if (it._it->_data == it_tmp._it->_data){
-						this->erase(it_tmp);
-					}
+					if (it._it->_data != it_tmp._it->_data)
+						break;
+					this->erase(it_tmp);
 					it_tmp++;
 				}
 				it++;
@@ -754,9 +754,9 @@ namespace ft {
 				it_tmp = it;
 				it_tmp++;
 				while (it_tmp != ite){
-					if (p(it._it->_data, it_tmp._it->_data) == true){
-						this->erase(it_tmp);
-					}
+					if (p(it._it->_data, it_tmp._it->_data) == false)
+						break;
+					this->erase(it_tmp);
 					it_tmp++;
 				}
 				it++;

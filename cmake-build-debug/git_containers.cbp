@@ -85,7 +85,7 @@
 		<Unit filename="/Users/schips/Desktop/git_containers/list.hpp">
 			<Option target="git_containers"/>
 		</Unit>
-		<Unit filename="/Users/schips/Desktop/git_containers/main.cpp">
+		<Unit filename="/Users/schips/Desktop/git_containers/list_test.cpp">
 			<Option target="git_containers"/>
 		</Unit>
 		<Unit filename="/Users/schips/Desktop/git_containers/CMakeLists.txt">

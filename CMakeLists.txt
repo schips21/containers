@@ -7,4 +7,5 @@ include_directories(.)
 
 add_executable(git_containers
         list.hpp
-        main.cpp)
+#        main.cpp
+        list_test.cpp)
