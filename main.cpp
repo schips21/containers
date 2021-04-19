@@ -108,9 +108,17 @@ int main(){
 	else
 		t = false;
 
+
+	ft::list<char> list_char;
+	list_char.push_back('s');
+	list_char.push_back('f');
+	list_char.push_back('5');
+	list_char.push_back('q');
+
+
 //	ft::swap(list_a,list_b);
 
-	list_a.sort();
+	list_char.sort();
 
 	std::cout << list_a.back();
 	return 0;

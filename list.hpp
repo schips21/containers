@@ -763,26 +763,73 @@ namespace ft {
 			}
 		}
 
+		void swap_node(node * first_node, node * second_node){
+			node *tmp_first;
+			node *tmp_second;
+			if (first_node == _head)
+				_head = second_node;
+			else if (second_node == _head)
+				_head = first_node;
+			if (first_node == _tail)
+				_tail = second_node;
+			else if (second_node == _tail)
+				_tail = first_node;
+			tmp_first = first_node->_prev;
+			tmp_second = second_node->_next;
+			first_node->_prev->_next = second_node;
+			first_node->_prev = second_node->_prev;
+			second_node->_prev->_next = first_node;
+			second_node->_prev = tmp_first;
+			second_node->_next->_prev = first_node;
+			second_node->_next = first_node->_next;
+			first_node->_next->_prev = second_node;
+			first_node->_next = tmp_second;
+		}
+
 		void sort(){
 			iterator it = this->begin();
 			iterator ite = this->end();
 			iterator it_tmp;
-			node *tmp_node;
-			while (it != ite){
+			bool sort_cycle = false;
+			bool is_sorted = false;
+			while (is_sorted == false){
 				it_tmp = it;
+				sort_cycle = false;
 				while (it_tmp != ite){
-					if (it_tmp._it->_data > it_tmp._it->_next->_data){
-						//swap the nodes
-						tmp_node = it_tmp._it;
-						tmp_node->_prev = it_tmp._it->_prev;
-						tmp_node->_next = it_tmp._it->_next;
-
-						it_tmp._it = it_tmp._it->_next;
-						it_tmp._it->_next = tmp_node;
+					if (it_tmp._it->_data > it_tmp._it->_next->_data && it_tmp._it->_next != _shadow){
+						swap_node(it_tmp._it, it_tmp._it->_next);
+						sort_cycle = true;
 					}
-					it_tmp++;
+					else
+						it_tmp++;
 				}
-				it++;
+				if (sort_cycle == false)
+					is_sorted = true;
+				it = this->begin();
+			}
+		}
+
+		template< class Compare >
+		void sort( Compare comp ){
+			iterator it = this->begin();
+			iterator ite = this->end();
+			iterator it_tmp;
+			bool sort_cycle = false;
+			bool is_sorted = false;
+			while (is_sorted == false){
+				it_tmp = it;
+				sort_cycle = false;
+				while (it_tmp != ite){
+					if (comp(it_tmp._it->_next->_data, it_tmp._it->_data) == true && it_tmp._it->_next != _shadow){
+						swap_node(it_tmp._it, it_tmp._it->_next);
+						sort_cycle = true;
+					}
+					else
+						it_tmp++;
+				}
+				if (sort_cycle == false)
+					is_sorted = true;
+				it = this->begin();
 			}
 		}
 
