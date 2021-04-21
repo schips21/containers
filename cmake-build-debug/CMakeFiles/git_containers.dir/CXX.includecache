@@ -10,14 +10,14 @@
 iostream
 -
 
-/Users/schips/Desktop/git_containers/stack.hpp
+/Users/schips/Desktop/git_containers/queue.hpp
 list.hpp
 /Users/schips/Desktop/git_containers/list.hpp
 
-/Users/schips/Desktop/git_containers/stack_test.cpp
-stack.hpp
-/Users/schips/Desktop/git_containers/stack.hpp
-stack
+/Users/schips/Desktop/git_containers/queue_test.cpp
+queue.hpp
+/Users/schips/Desktop/git_containers/queue.hpp
+queue
 -
 unistd.h
 -

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/git_containers.dir/stack_test.cpp.o"
+  "CMakeFiles/git_containers.dir/queue_test.cpp.o"
   "git_containers"
   "git_containers.pdb"
 )
