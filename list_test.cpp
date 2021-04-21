@@ -1,5 +1,7 @@
 #include "list.hpp"
 #include <list>
+#include <unistd.h>
+
 
 template <class T>
 void print_std_list(std::list<T> & list){
@@ -302,4 +304,6 @@ int main(){
 	print_std_list(std_list_int_two);
 	std::cout << "Ft list two after sort function:\n";
 	print_ft_list(ft_list_int_two);
+//	sleep(1000);
+
 }

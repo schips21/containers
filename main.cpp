@@ -1,5 +1,6 @@
 #include "list.hpp"
 #include <list>
+#include "stack.hpp"
 
 bool my_pred(int data){
 	if (data % 2 == 0)
@@ -8,118 +9,37 @@ bool my_pred(int data){
 }
 
 int main(){
-	std::list<int> list_def;
-	list_def.push_back(1);
-	list_def.push_back(2);
-//	list_def.push_back(3);
-	std::list<int> list_def2;
-	list_def2.push_back(1);
-	list_def2.push_back(2);
-	list_def2.push_back(3);
-	bool f;
-	if (list_def < list_def2)
-		f = true;
-	else
-		f = false;
-
-//	std::list<int>::const_iterator it2 = list_def2.begin();
-//	it2++;
-//	list_def.splice( it_d, list_def2, it2);
-//	it_d = list_def.erase(it_d, it_dl);
-//	int g = *it_d;
-
-//	std::list<int>::iterator it = list_def.end();
-//	h_def = *it;
-
-//	std::list<int>::const_iterator it2 = list_def.begin();
-//	std::list<int>::iterator it3 = list_def.end();
-//	it2 = it3;
-
-//	ft::list<int> list_a(3, 10);
-//	list_a.pop_back();
-//	list_a.push_front(50);
-//	list_a.push_front(20);
-//	list_a.push_front(100);
-//	list_a.resize(8,5);
-//	list_a.push_back(18);
+//	ft::list<int> list_a;
 //	ft::list<int> list_b;
-//	list_b.push_front(6);
-//	list_b.push_front(1);
-//	ft::list<int>::iterator it = list_b.begin();
-//	it++;
-//	ft::list<int>::iterator it1 = list_a.begin();
-//	it1++;
-//	it1++;
-//	ft::list<int>::iterator it2 = it1;
-//	it2++;
-//	it2++;
-//	list_b.insert(it, it1, it2);
+//
+//	list_a.push_back(1);
+//	list_a.push_back(9);
+//
+//	list_b.push_back(5);
+//	list_b.push_back(5);
+//	list_b.push_back(10);
+//
+//	list_b.merge(list_a);
+//
+//	ft::list<int>::const_iterator it_a = list_a.begin();
+//	it_a++;
+//	ft::list<int>::const_iterator it_b = list_b.begin();
+//	it_b++;
+//	ft::list<int>::const_iterator ite_b = list_b.end();
+////	list_a.splice(it_a, list_b, it_b, ite_b);
+//
+//
+////	std::cout << list_a.back();
 
+	ft::stack<int> stack;
+	stack.push(6);
+	stack.push(10);
+	stack.push(15);
 
-	ft::list<int> list_a;
-	ft::list<int> list_b;
+	ft::stack<int> stack_2;
+	stack_2.push(6);
+	stack_2.push(10);
 
-	list_a.push_back(1);
-	list_a.push_back(9);
-
-	list_b.push_back(5);
-	list_b.push_back(5);
-	list_b.push_back(10);
-
-
-	list_a.merge(list_b);
-	list_a.unique();
-
-	ft::list<int> list_c(list_a);
-//	list_a.remove_if(my_pred);
-
-
-//	ft::list<int>::const_iterator it = list_a.begin();
-//	it++;
-//	ft::list<int>::const_iterator it1 = list_b.begin();
-//	it1++;
-////	list_a.splice(it, list_b,it1);
-////	it = list_a.begin();
-////	it1 = list_b.begin();
-//	list_a.splice(it, list_b, it1, list_b.end());
-////	it = list_b.erase(it, it1);
-
-	bool t;
-	if (list_a != list_c)
-		t = true;
-	else
-		t = false;
-	list_c.pop_back();
-	list_c.push_back(45645);
-
-	list_a.clear();
-	list_b.clear();
-	list_a.push_back(15);
-	list_a.push_back(7);
-	list_a.push_back(3);
-
-	list_b.push_back(10);
-	list_b.push_back(15);
-//	list_b.push_back(3);
-
-
-	if (list_a >= list_b)
-		t = true;
-	else
-		t = false;
-
-
-	ft::list<char> list_char;
-	list_char.push_back('s');
-	list_char.push_back('f');
-	list_char.push_back('5');
-	list_char.push_back('q');
-
-
-//	ft::swap(list_a,list_b);
-
-	list_char.sort();
-
-	std::cout << list_a.back();
+	std::cout << (stack <= stack_2) << std::endl;
 	return 0;
 }

@@ -116,6 +116,7 @@ namespace ft {
 
 		~list(){
 			this->clear();
+			delete this->_shadow;
 		}
 
 		list& operator=( const list& other ){
@@ -522,6 +523,7 @@ namespace ft {
 			if (_list_size != 0){
 				_tail->_prev->_next = _shadow;
 				_shadow->_prev = _tail->_prev;
+				delete _tail;
 				_tail = _tail->_prev;
 				_list_size--;
 				if (_list_size == 0){
@@ -554,6 +556,7 @@ namespace ft {
 			if (_list_size != 0){
 				_head->_next->_prev = _shadow;
 				_shadow->_next = _head->_next;
+				delete _head;
 				_head = _head->_next;
 				_list_size--;
 				if (_list_size == 0){
@@ -651,6 +654,29 @@ namespace ft {
 			}
 		}
 
+//		void swap_node_splice(node * first_node, list& first_list, node * second_node, list& second_list){
+//			node *tmp_first;
+//			node *tmp_second;
+//			if (first_node == first_list._head)
+//				first_list._head = second_node;
+//			else if (second_node == second_list._head)
+//				second_list._head = first_node;
+//			if (first_node == first_list._tail)
+//				first_list._tail = second_node;
+//			else if (second_node == second_list._tail)
+//				second_list._tail = first_node;
+//			tmp_first = first_node->_prev;
+//			tmp_second = second_node->_next;
+//			first_node->_prev->_next = second_node;
+//			first_node->_prev = second_node->_prev;
+//			second_node->_prev->_next = first_node;
+//			second_node->_prev = tmp_first;
+//			second_node->_next->_prev = first_node;
+//			second_node->_next = first_node->_next;
+//			first_node->_next->_prev = second_node;
+//			first_node->_next = tmp_second;
+//		}
+
 //		Transfers the element pointed to by it from other into *this. The element is inserted before the element pointed to by pos
 		void splice( const_iterator pos, list& other, const_iterator it ){
 			pos._it->_prev->_next = it._it;
@@ -675,6 +701,8 @@ namespace ft {
 			if (pos._it == this->_shadow && pos._it->_prev != this->_tail){
 				this->_tail = pos._it->_prev;
 			}
+
+//			swap_node_splice(pos._it, *this, it._it, other);
 
 			this->_list_size++;
 			other._list_size--;

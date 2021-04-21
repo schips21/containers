@@ -10,9 +10,15 @@
 iostream
 -
 
-/Users/schips/Desktop/git_containers/list_test.cpp
+/Users/schips/Desktop/git_containers/stack.hpp
 list.hpp
 /Users/schips/Desktop/git_containers/list.hpp
-list
+
+/Users/schips/Desktop/git_containers/stack_test.cpp
+stack.hpp
+/Users/schips/Desktop/git_containers/stack.hpp
+stack
+-
+unistd.h
 -
 
