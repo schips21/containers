@@ -143,32 +143,32 @@ git_containers/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/build
 .PHONY : git_containers/fast
 
-queue_test.o: queue_test.cpp.o
+main.o: main.cpp.o
 
-.PHONY : queue_test.o
+.PHONY : main.o
 
 # target to build an object file
-queue_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/queue_test.cpp.o
-.PHONY : queue_test.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-queue_test.i: queue_test.cpp.i
+main.i: main.cpp.i
 
-.PHONY : queue_test.i
+.PHONY : main.i
 
 # target to preprocess a source file
-queue_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/queue_test.cpp.i
-.PHONY : queue_test.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-queue_test.s: queue_test.cpp.s
+main.s: main.cpp.s
 
-.PHONY : queue_test.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-queue_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/queue_test.cpp.s
-.PHONY : queue_test.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -179,9 +179,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... git_containers"
-	@echo "... queue_test.o"
-	@echo "... queue_test.i"
-	@echo "... queue_test.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

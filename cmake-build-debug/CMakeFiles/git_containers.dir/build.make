@@ -77,27 +77,27 @@ include CMakeFiles/git_containers.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/git_containers.dir/flags.make
 
-CMakeFiles/git_containers.dir/queue_test.cpp.o: CMakeFiles/git_containers.dir/flags.make
-CMakeFiles/git_containers.dir/queue_test.cpp.o: ../queue_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tatiana/Desktop/git_cont/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/git_containers.dir/queue_test.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/queue_test.cpp.o -c /Users/tatiana/Desktop/git_cont/queue_test.cpp
+CMakeFiles/git_containers.dir/main.cpp.o: CMakeFiles/git_containers.dir/flags.make
+CMakeFiles/git_containers.dir/main.cpp.o: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tatiana/Desktop/git_cont/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/git_containers.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/main.cpp.o -c /Users/tatiana/Desktop/git_cont/main.cpp
 
-CMakeFiles/git_containers.dir/queue_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/git_containers.dir/queue_test.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tatiana/Desktop/git_cont/queue_test.cpp > CMakeFiles/git_containers.dir/queue_test.cpp.i
+CMakeFiles/git_containers.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/git_containers.dir/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tatiana/Desktop/git_cont/main.cpp > CMakeFiles/git_containers.dir/main.cpp.i
 
-CMakeFiles/git_containers.dir/queue_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/queue_test.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tatiana/Desktop/git_cont/queue_test.cpp -o CMakeFiles/git_containers.dir/queue_test.cpp.s
+CMakeFiles/git_containers.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tatiana/Desktop/git_cont/main.cpp -o CMakeFiles/git_containers.dir/main.cpp.s
 
 # Object files for target git_containers
 git_containers_OBJECTS = \
-"CMakeFiles/git_containers.dir/queue_test.cpp.o"
+"CMakeFiles/git_containers.dir/main.cpp.o"
 
 # External object files for target git_containers
 git_containers_EXTERNAL_OBJECTS =
 
-git_containers: CMakeFiles/git_containers.dir/queue_test.cpp.o
+git_containers: CMakeFiles/git_containers.dir/main.cpp.o
 git_containers: CMakeFiles/git_containers.dir/build.make
 git_containers: CMakeFiles/git_containers.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/tatiana/Desktop/git_cont/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable git_containers"

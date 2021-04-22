@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/tatiana/Desktop/git_cont/queue_test.cpp">
+		<Unit filename="/Users/tatiana/Desktop/git_cont/main.cpp">
 			<Option target="git_containers"/>
 		</Unit>
 		<Unit filename="/Users/tatiana/Desktop/git_cont/CMakeLists.txt">
