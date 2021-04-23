@@ -42,9 +42,41 @@ namespace ft{
 			_size = n;
 			_capacity = n;
 			_data = _alloc.allocate(_capacity);
-			for (size_type i = 0; i < _size; ++i)
+			for (size_type i = 0; i < _size; i++)
 				_alloc.construct(_data + i, val);
 		}
+
+//		template <class InputIterator>
+//		vector (InputIterator first, InputIterator last,
+//				const allocator_type& alloc = allocator_type()){
+//
+//		}
+
+//		vector (const vector& x){
+//
+//		}
+
+		~vector(){
+			this->delete_vect();
+		}
+
+//		vector& operator= (const vector& x){
+//			if (this == x){
+//				return *this;
+//			}
+//
+//		}
+
+		void delete_vect(){
+			if (this->_size != 0){
+				for (size_type i = 0; i < _size; i++)
+					_alloc.destroy(_data + i);
+				_alloc.deallocate(_data, _capacity);
+				_capacity = 0;
+				_size = 0;
+			}
+		}
+
 	};
 }
 
