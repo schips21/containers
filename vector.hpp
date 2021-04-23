@@ -64,6 +64,7 @@ namespace ft{
 //			if (this == x){
 //				return *this;
 //			}
+//			this->delete_vect();
 //
 //		}
 
@@ -76,6 +77,43 @@ namespace ft{
 				_size = 0;
 			}
 		}
+
+//		Capacity
+
+		size_type size() const{
+			return _size;
+		}
+
+		size_type max_size() const{
+			return (std::numeric_limits<size_type>::max() / sizeof(T));
+		}
+
+//		void resize (size_type n, value_type val = value_type()){
+//
+//		}
+
+		size_type capacity() const{
+			return _capacity;
+		}
+
+		bool empty() const{
+			if (_size == 0){
+				return true;
+			}
+			return false;
+		}
+
+//		void reserve (size_type n){
+//
+//		}
+
+//		Element access:
+
+		reference operator[] (size_type n){
+
+		}
+
+
 
 	};
 }
