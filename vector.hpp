@@ -103,9 +103,22 @@ namespace ft{
 			return false;
 		}
 
-//		void reserve (size_type n){
-//
-//		}
+		void capacity_realloc(size_type n){
+			pointer tmp = this->_alloc.allocate(n);
+			for (size_type i = 0; i < _size; i++)
+				_alloc.construct(tmp + i, _data[i]);
+			this->delete_vect();
+			_capacity = n;
+			_data = tmp;
+		}
+
+		void reserve (size_type n){
+			if (n <= this->_capacity)
+				return;
+			if (n > max_size())
+				throw std::length_error("reserve: too big size to reallocate");
+			capacity_realloc(n);
+		}
 
 //		Element access:
 
