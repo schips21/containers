@@ -133,8 +133,15 @@ namespace ft{
 		void push_back (const value_type& val){
 			if (_size + 1 > _capacity)
 				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
-			_alloc.construct(_data +_size, val);
+			_alloc.construct(_data + _size, val);
 			_size++;
+		}
+
+		void pop_back(){
+			if (_size > 0){
+				_alloc.destroy(_data + (_size - 1));
+				_size--;
+			}
 		}
 
 //		Utils

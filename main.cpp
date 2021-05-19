@@ -22,5 +22,11 @@ int main(){
 	vec.push_back(9);
 	std::cout << vec.size() << std::endl;
 	std::cout << vec.capacity() << std::endl;
+	vec.pop_back();
+	vec.pop_back();
+	vec.pop_back();
+	vec.pop_back();
+	std::cout << vec.size() << std::endl;
+	std::cout << vec.capacity() << std::endl;
 	return 0;
 }
