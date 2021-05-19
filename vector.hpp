@@ -68,16 +68,6 @@ namespace ft{
 //
 //		}
 
-		void delete_vect(){
-			if (this->_size != 0){
-				for (size_type i = 0; i < _size; i++)
-					_alloc.destroy(_data + i);
-				_alloc.deallocate(_data, _capacity);
-				_capacity = 0;
-				_size = 0;
-			}
-		}
-
 //		Capacity
 
 		size_type size() const{
@@ -89,7 +79,17 @@ namespace ft{
 		}
 
 //		void resize (size_type n, value_type val = value_type()){
-//
+//			if (n < _size){
+//				while (_size > n)
+//					this->pop_back(val);
+//			}
+//			else if (n > _size){
+//				if (n > _capacity){
+//					this->resize(_capacity * 2 > n ? _capacity * 2 : n);
+//				}
+//				while (_size < n)
+//					this->push_back(val);
+//			}
 //		}
 
 		size_type capacity() const{
@@ -124,6 +124,18 @@ namespace ft{
 
 		reference operator[] (size_type n){
 
+		}
+
+//		Utils
+
+		void delete_vect(){
+			if (this->_size != 0){
+				for (size_type i = 0; i < _size; i++)
+					_alloc.destroy(_data + i);
+				_alloc.deallocate(_data, _capacity);
+				_capacity = 0;
+				_size = 0;
+			}
 		}
 
 

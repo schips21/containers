@@ -18,5 +18,11 @@ int main(){
 	vec.reserve(20);
 	std::cout << vec.capacity() << std::endl;
 	std::cout << vec_std.capacity() << std::endl;
+	vec_std.resize(2);
+	std::cout << vec_std.capacity() << std::endl;
+	std::cout << vec_std.size() << std::endl;
+	vec_std.resize(41);
+	std::cout << vec_std.capacity() << std::endl;
+	std::cout << vec_std.size() << std::endl;
 	return 0;
 }
