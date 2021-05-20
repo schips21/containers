@@ -132,6 +132,38 @@ namespace ft{
 			return _data[n];
 		}
 
+		reference at (size_type n){
+			if (n >= _size)
+				throw std::out_of_range("invalid index");
+			return _data[n];
+		}
+
+		const_reference at (size_type n) const{
+			if (n >= _size)
+				throw std::out_of_range("invalid index");
+			return _data[n];
+		}
+
+		reference front(){
+			if (_size != 0)
+				return _data[0];
+		}
+
+		const_reference front() const{
+			if (_size != 0)
+				return _data[0];
+		}
+
+		reference back(){
+			if (_size != 0)
+				return _data[_size - 1];
+		}
+
+		const_reference back() const{
+			if (_size != 0)
+				return _data[_size - 1];
+		}
+
 //		Modifiers
 
 		void push_back (const value_type& val){
