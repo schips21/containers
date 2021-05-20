@@ -162,9 +162,26 @@ namespace ft{
 
 //		Modifiers
 
+//		template <class InputIterator>
+//		void assign (InputIterator first, InputIterator last){
+//
+//
+//		}
+
+//		to check assign
+		void assign (size_type n, const value_type& val){
+			this->clear();
+//			if (n > _capacity){
+//				this->capacity_realloc(_capacity * 2 > n ? _capacity * 2 : n);
+//			}
+			for (int i = 0; i < n; i++)
+				this->push_back(val);
+		}
+
 		void push_back (const value_type& val){
 			if (_size + 1 > _capacity)
-				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
+				this->capacity_realloc(_capacity + 1);
+//				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
 			_alloc.construct(_data + _size, val);
 			_size++;
 		}
@@ -174,6 +191,11 @@ namespace ft{
 				_alloc.destroy(_data + (_size - 1));
 				_size--;
 			}
+		}
+
+		void clear(){
+			while (_size > 0)
+				this->pop_back();
 		}
 
 //		Utils

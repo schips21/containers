@@ -17,9 +17,20 @@ int main(){
 	std::cout << vec_std.size() << std::endl;
 	std::cout << vec_std.capacity() << std::endl;
 
-	std::cout << vec.back() << std::endl;
-	std::cout << vec_std.back() << std::endl;
-	std::cout << vec.front() << std::endl;
-	std::cout << vec_std.front() << std::endl;
+	vec.assign(5, 100);
+	vec_std.assign(5, 100);
+	std::cout << "After assign" << std::endl;
+	std::cout << vec.size() << std::endl;
+	std::cout << vec.capacity() << std::endl;
+	std::cout << vec_std.size() << std::endl;
+	std::cout << vec_std.capacity() << std::endl;
+
+	vec.push_back(-1);
+	vec_std.push_back(-1);
+	std::cout << "After push_back" << std::endl;
+	std::cout << vec.size() << std::endl;
+	std::cout << vec.capacity() << std::endl;
+	std::cout << vec_std.size() << std::endl;
+	std::cout << vec_std.capacity() << std::endl;
 	return 0;
 }
