@@ -23,11 +23,11 @@ namespace ft{
 		pointer			_data;
 
 	public:
-		vector(){
-			_size = 0;
-			_capacity = 0;
-			_data = NULL;
-		}
+//		vector(){
+//			_size = 0;
+//			_capacity = 0;
+//			_data = NULL;
+//		}
 
 		explicit vector (const allocator_type& alloc = allocator_type()){
 			_alloc = alloc;
@@ -145,23 +145,19 @@ namespace ft{
 		}
 
 		reference front(){
-			if (_size != 0)
-				return _data[0];
+			return _data[0];
 		}
 
 		const_reference front() const{
-			if (_size != 0)
-				return _data[0];
+			return _data[0];
 		}
 
 		reference back(){
-			if (_size != 0)
-				return _data[_size - 1];
+			return _data[_size - 1];
 		}
 
 		const_reference back() const{
-			if (_size != 0)
-				return _data[_size - 1];
+			return _data[_size - 1];
 		}
 
 //		Modifiers
