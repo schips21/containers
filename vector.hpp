@@ -78,19 +78,19 @@ namespace ft{
 			return (std::numeric_limits<size_type>::max() / sizeof(T));
 		}
 
-//		void resize (size_type n, value_type val = value_type()){
-//			if (n < _size){
-//				while (_size > n)
-//					this->pop_back(val);
-//			}
-//			else if (n > _size){
-//				if (n > _capacity){
-//					this->resize(_capacity * 2 > n ? _capacity * 2 : n);
-//				}
-//				while (_size < n)
-//					this->push_back(val);
-//			}
-//		}
+		void resize (size_type n, value_type val = value_type()){
+			if (n < _size){
+				while (_size > n)
+					this->pop_back();
+			}
+			else if (n > _size){
+				if (n > _capacity){
+					this->capacity_realloc(_capacity * 2 > n ? _capacity * 2 : n);
+				}
+				while (_size < n)
+					this->push_back(val);
+			}
+		}
 
 		size_type capacity() const{
 			return _capacity;
