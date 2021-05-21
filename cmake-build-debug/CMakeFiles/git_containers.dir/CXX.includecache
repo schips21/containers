@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/Users/tatiana/Desktop/containers/list.hpp
+/Users/schips/Desktop/git_containers/list.hpp
 iostream
 -
 
-/Users/tatiana/Desktop/containers/main.cpp
+/Users/schips/Desktop/git_containers/main.cpp
 list.hpp
-/Users/tatiana/Desktop/containers/list.hpp
+/Users/schips/Desktop/git_containers/list.hpp
 list
 -
 stack.hpp
-/Users/tatiana/Desktop/containers/stack.hpp
+/Users/schips/Desktop/git_containers/stack.hpp
 vector.hpp
-/Users/tatiana/Desktop/containers/vector.hpp
+/Users/schips/Desktop/git_containers/vector.hpp
 vector
 -
 
-/Users/tatiana/Desktop/containers/stack.hpp
+/Users/schips/Desktop/git_containers/stack.hpp
 list.hpp
-/Users/tatiana/Desktop/containers/list.hpp
+/Users/schips/Desktop/git_containers/list.hpp
 
-/Users/tatiana/Desktop/containers/vector.hpp
+/Users/schips/Desktop/git_containers/vector.hpp
 iostream
 -
 

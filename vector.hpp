@@ -171,17 +171,19 @@ namespace ft{
 //		to check assign
 		void assign (size_type n, const value_type& val){
 			this->clear();
-//			if (n > _capacity){
-//				this->capacity_realloc(_capacity * 2 > n ? _capacity * 2 : n);
-//			}
+			if (n > _capacity){
+				_alloc.deallocate(_data, _capacity);
+				_data = _alloc.allocate(n);
+				_capacity = n;
+			}
 			for (int i = 0; i < n; i++)
 				this->push_back(val);
 		}
 
 		void push_back (const value_type& val){
 			if (_size + 1 > _capacity)
-				this->capacity_realloc(_capacity + 1);
-//				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
+//				this->capacity_realloc(_capacity + 1);
+				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
 			_alloc.construct(_data + _size, val);
 			_size++;
 		}
