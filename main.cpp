@@ -32,5 +32,17 @@ int main(){
 	std::cout << vec.capacity() << std::endl;
 	std::cout << vec_std.size() << std::endl;
 	std::cout << vec_std.capacity() << std::endl;
+
+	ft::vector<int> vec_2(2, 15);
+	std::vector<int> vec_2_std(2, 15);
+	vec.swap(vec_2);
+	vec_std.swap(vec_2_std);
+	std::cout << "After swap" << std::endl;
+	std::cout << vec.size() << std::endl;
+	std::cout << vec.capacity() << std::endl;
+	std::cout << vec_std.size() << std::endl;
+	std::cout << vec_std.capacity() << std::endl;
+
+
 	return 0;
 }

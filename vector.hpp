@@ -168,7 +168,6 @@ namespace ft{
 //
 //		}
 
-//		to check assign
 		void assign (size_type n, const value_type& val){
 			this->clear();
 			if (n > _capacity){
@@ -193,6 +192,31 @@ namespace ft{
 				_alloc.destroy(_data + (_size - 1));
 				_size--;
 			}
+		}
+
+		void swap (vector& x){
+//			if (x == *this)
+//				return;
+			allocator_type tmp_alloc;
+			size_type tmp_size;
+			size_type tmp_capacity;
+			pointer tmp_data;
+
+			tmp_alloc = this->_alloc;
+			this->_alloc = x._alloc;
+			x._alloc = tmp_alloc;
+
+			tmp_size = this->_size;
+			this->_size = x._size;
+			x._size = tmp_size;
+
+			tmp_capacity = this->_capacity;
+			this->_capacity = x._capacity;
+			x._capacity = tmp_capacity;
+
+			tmp_data = this->_data;
+			this->_data = x._data;
+			x._data = tmp_data;
 		}
 
 		void clear(){
