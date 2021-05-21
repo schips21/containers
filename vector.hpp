@@ -68,6 +68,26 @@ namespace ft{
 //
 //		}
 
+//		Iterators
+
+		class it_general{
+		protected:
+			pointer _it;
+		public:
+			it_general(){
+				_it = NULL;
+			}
+
+			explicit it_general(pointer it){
+				_it = it;
+			}
+
+			~it_general(){}
+
+
+		};
+
+
 //		Capacity
 
 		size_type size() const{
@@ -224,6 +244,10 @@ namespace ft{
 				this->pop_back();
 		}
 
+		allocator_type get_allocator() const{
+			return std::allocator<T>(_alloc);
+		}
+
 //		Utils
 
 		void delete_vect(){
@@ -239,6 +263,11 @@ namespace ft{
 
 
 	};
+
+	template <class T, class Alloc>
+	void swap (vector<T,Alloc>& x, vector<T,Alloc>& y){
+		x.swap(y);
+	}
 }
 
 #endif
