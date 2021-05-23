@@ -84,8 +84,40 @@ namespace ft{
 
 			~it_general(){}
 
+			//конструктор копирования и оператор = в классе итератор
+
+			bool operator==(const it_general& rhs) const{
+				return (this->_it == rhs._it);
+			}
+
+			bool operator!=(const it_general& rhs) const{
+				return (this->_it != rhs._it);
+			}
+
+			T &operator*() const{
+				return *(this->_it);
+			}
+
+			T *operator->() const{
+				return (this->_it);
+			}
+
 
 		};
+
+		typedef class iterator : public it_general{
+		public:
+			iterator() : it_general(){}
+			explicit iterator(pointer it) : it_general(it){}
+		}				iterator;
+
+		iterator begin(){
+			return (iterator(this->_data));
+		}
+
+		iterator end(){
+			return (iterator(this->_data + (_size - 1)));
+		}
 
 
 //		Capacity
