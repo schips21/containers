@@ -23,12 +23,6 @@ namespace ft{
 		pointer			_data;
 
 	public:
-//		vector(){
-//			_size = 0;
-//			_capacity = 0;
-//			_data = NULL;
-//		}
-
 		explicit vector (const allocator_type& alloc = allocator_type()){
 			_alloc = alloc;
 			_size = 0;
@@ -77,11 +71,9 @@ namespace ft{
 			it_general(){
 				_it = NULL;
 			}
-
 			explicit it_general(pointer it){
 				_it = it;
 			}
-
 			~it_general(){}
 
 			//конструктор копирования и оператор = в классе итератор
@@ -109,6 +101,33 @@ namespace ft{
 		public:
 			iterator() : it_general(){}
 			explicit iterator(pointer it) : it_general(it){}
+			iterator& operator=(const iterator& rhs) {
+				if (*this == rhs)
+					return *this;
+				this->_it = rhs._it;
+				return *this;
+			}
+			iterator(const iterator& rhs){
+				this->_it = rhs._it;
+			}
+			iterator& operator++() {
+				this->_it++;
+				return *this;
+			}
+			iterator& operator--() {
+				this->_it--;
+				return *this;
+			}
+			iterator operator++(int) {
+				iterator prev_it(*this);
+				this->_it++;
+				return prev_it;
+			}
+			iterator operator--(int) {
+				iterator prev_it(*this);
+				this->_it--;
+				return prev_it;
+			}
 		}				iterator;
 
 		iterator begin(){
@@ -116,7 +135,7 @@ namespace ft{
 		}
 
 		iterator end(){
-			return (iterator(this->_data + (_size - 1)));
+			return (iterator(this->_data + _size));
 		}
 
 

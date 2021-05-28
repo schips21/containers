@@ -5,14 +5,23 @@
 #include <vector>
 
 int main(){
-	ft::vector<int> vec(2, 15);
-	std::vector<int> vec_std(2, 15);
+	ft::vector<int> vec(1, 15);
+	std::vector<int> vec_std(1, 15);
+	vec_std.push_back(1);
 	vec.push_back(1);
+	vec_std.push_back(10);
+	vec.push_back(10);
 
-	ft::vector<int>::iterator it = vec.end();
 	std::vector<int>::iterator it_std = vec_std.begin();
+	ft::vector<int>::iterator it = vec.begin();
 
+	std::cout << *it++ << std::endl;
 	std::cout << *it << std::endl;
+
+	std::cout << *it_std++ << std::endl;
+	std::cout << *it_std << std::endl;
+//	*it_std--;
+//	std::cout << *it_std << std::endl;
 }
 
 //int main(){
