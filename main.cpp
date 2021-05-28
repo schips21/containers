@@ -12,13 +12,16 @@ int main(){
 	vec_std.push_back(10);
 	vec.push_back(10);
 
-	std::vector<int>::iterator it_std = vec_std.begin();
-	ft::vector<int>::iterator it = vec.begin();
+	std::vector<int>::iterator it_std = vec_std.end();
+	ft::vector<int>::iterator it = vec.end();
 
-	std::cout << *it++ << std::endl;
+	it-=1;
+
+//	std::cout << *it++ << std::endl;
 	std::cout << *it << std::endl;
 
-	std::cout << *it_std++ << std::endl;
+	it_std-=1;
+//	std::cout << *it_std++ << std::endl;
 	std::cout << *it_std << std::endl;
 //	*it_std--;
 //	std::cout << *it_std << std::endl;

@@ -128,6 +128,22 @@ namespace ft{
 				this->_it--;
 				return prev_it;
 			}
+			iterator &operator+=(int n){
+				this->_it += n;
+				return *this;
+			}
+			iterator operator+(int n){
+				iterator tmp(*this);
+				return tmp += n;
+			}
+			iterator &operator-=(int n){
+				this->_it -= n;
+				return *this;
+			}
+			iterator operator-(int n){
+				iterator tmp(*this);
+				return tmp -= n;
+			}
 		}				iterator;
 
 		iterator begin(){
