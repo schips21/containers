@@ -4,6 +4,26 @@
 #include "vector.hpp"
 #include <vector>
 
+template <class T>
+void print_ft_vec(const ft::vector<T> & vec){
+	typename ft::vector<T>::const_iterator it = vec.begin();
+	typename ft::vector<T>::const_iterator ite = vec.end();
+	std::cout << "FT vector" << std::endl;
+	while (it != ite){
+		std::cout << *it++ << std::endl;
+	}
+}
+
+template <class T>
+void print_std_vec(const std::vector<T> & vec){
+	typename std::vector<T>::const_iterator it = vec.begin();
+	typename std::vector<T>::const_iterator ite = vec.end();
+	std::cout << "STD vector" << std::endl;
+	while (it != ite){
+		std::cout << *it++ << std::endl;
+	}
+}
+
 int main(){
 	ft::vector<int> vec(1, 15);
 	std::vector<int> vec_std(1, 15);
@@ -16,15 +36,19 @@ int main(){
 	ft::vector<int>::iterator it = vec.end();
 
 	it-=1;
-
-//	std::cout << *it++ << std::endl;
 	std::cout << it[200] << std::endl;
 
 	it_std-=1;
-//	std::cout << *it_std++ << std::endl;
 	std::cout << it_std[200] << std::endl;
-//	*it_std--;
-//	std::cout << *it_std << std::endl;
+
+	ft::vector<int> vec2(vec.begin(), vec.end());
+	std::vector<int> vec2_std(vec_std.begin(), vec_std.end());
+//	std::cout << *vec2.begin() << std::endl;
+//	std::cout << *vec2_std.begin() << std::endl;
+//	std::cout << *--vec2.end() << std::endl;
+//	std::cout << *--vec2_std.end() << std::endl;
+	print_ft_vec(vec2);
+	print_std_vec(vec2_std);
 }
 
 //int main(){

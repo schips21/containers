@@ -40,11 +40,18 @@ namespace ft{
 				_alloc.construct(_data + i, val);
 		}
 
-//		template <class InputIterator>
-//		vector (InputIterator first, InputIterator last,
-//				const allocator_type& alloc = allocator_type()){
-//
-//		}
+		template <class InputIterator>
+		vector (InputIterator first, InputIterator last,
+				const allocator_type& alloc = allocator_type(), typename enable_if<!std::numeric_limits<InputIterator>::is_specialized>::type * = 0){
+			_alloc = alloc;
+			_size = 0;
+			_capacity = 0;
+			_data = NULL;
+			while (first != last){
+				this->push_back(*first);
+				first++;
+			}
+		}
 
 //		vector (const vector& x){
 //
@@ -84,7 +91,7 @@ namespace ft{
 				return (this->_it != rhs._it);
 			}
 
-			virtual T &operator*() const{
+			T &operator*() const{
 				return *(this->_it);
 			}
 			T *operator->() const{
@@ -165,7 +172,8 @@ namespace ft{
 			explicit const_iterator(const iterator& rhs) : iterator(rhs){}
 			virtual ~const_iterator(){}
 			const T &operator*() const{
-				return (this->_it->_data);
+				return *(this->_it);
+//				return (this->_it->_data);
 			}
 		}				const_iterator;
 
@@ -226,7 +234,8 @@ namespace ft{
 			explicit const_reverse_iterator(const reverse_iterator& rhs) : reverse_iterator(rhs){}
 			virtual ~const_reverse_iterator(){}
 			const T &operator*() const{
-				return (this->_it->_data);
+				return *(this->_it);
+//				return (this->_it->_data);
 			}
 		}				const_reverse_iterator;
 
