@@ -64,6 +64,7 @@ namespace ft{
 
 //		Iterators
 
+	private:
 		class it_general{
 		protected:
 			pointer _it;
@@ -106,6 +107,7 @@ namespace ft{
 			}
 		};
 
+	public:
 		typedef class iterator : public it_general{
 		public:
 			iterator() : it_general(){}
@@ -231,9 +233,26 @@ namespace ft{
 		iterator begin(){
 			return (iterator(this->_data));
 		}
-
+		const_iterator begin() const{
+			return (const_iterator(this->_data));
+		}
 		iterator end(){
 			return (iterator(this->_data + _size));
+		}
+		const_iterator end() const{
+			return (const_iterator(this->_data + _size));
+		}
+		reverse_iterator rbegin(){
+			return (reverse_iterator(this->_data + (_size - 1)));
+		}
+		const_reverse_iterator rbegin() const{
+			return (const_reverse_iterator(this->_data + (_size - 1)));
+		}
+		reverse_iterator rend(){
+			return (reverse_iterator(this->_data - 1));
+		}
+		const_reverse_iterator rend() const{
+			return (const_reverse_iterator(this->_data - 1));
 		}
 
 

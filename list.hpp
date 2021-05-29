@@ -211,6 +211,7 @@ namespace ft {
 //		}
 
 //		ITERATORS
+	private:
 		class it_general{
 		protected:
 			node *_it;
@@ -239,6 +240,7 @@ namespace ft {
 			friend class list<T>;
 		};
 
+	public:
 		typedef class iterator : public it_general{
 		public:
 			iterator() : it_general(){}
