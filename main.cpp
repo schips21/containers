@@ -48,11 +48,11 @@ int main(){
 //	std::cout << *vec2_std.begin() << std::endl;
 //	std::cout << *--vec2.end() << std::endl;
 //	std::cout << *--vec2_std.end() << std::endl;
-	ft::vector<int> vec2;
-	std::vector<int> vec2_std;
+	ft::vector<int> vec2(vec);
+	std::vector<int> vec2_std(vec_std);
 
-	vec2 = vec;
-	vec2_std = vec_std;
+//	vec2 = vec;
+//	vec2_std = vec_std;
 	print_ft_vec(vec2);
 	print_std_vec(vec2_std);
 

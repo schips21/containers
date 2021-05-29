@@ -53,9 +53,12 @@ namespace ft{
 			}
 		}
 
-//		vector (const vector& x){
-//
-//		}
+		vector (const vector& x){
+			_size = 0;
+			_capacity = 0;
+			_data = NULL;
+			*this = x;
+		}
 
 		~vector(){
 			this->delete_vect();
