@@ -74,7 +74,7 @@ namespace ft{
 			explicit it_general(pointer it){
 				_it = it;
 			}
-			~it_general(){}
+			virtual ~it_general(){}
 			//конструктор копирования и оператор = в классе итератор
 			bool operator==(const it_general& rhs) const{
 				return (this->_it == rhs._it);
@@ -82,7 +82,8 @@ namespace ft{
 			bool operator!=(const it_general& rhs) const{
 				return (this->_it != rhs._it);
 			}
-			T &operator*() const{
+
+			virtual T &operator*() const{
 				return *(this->_it);
 			}
 			T *operator->() const{
@@ -118,6 +119,7 @@ namespace ft{
 			iterator(const iterator& rhs){
 				this->_it = rhs._it;
 			}
+			virtual ~iterator(){}
 			iterator& operator++() {
 				this->_it++;
 				return *this;
@@ -153,6 +155,78 @@ namespace ft{
 				return tmp -= n;
 			}
 		}				iterator;
+
+		typedef class const_iterator : public iterator {
+		public:
+			const_iterator() : iterator(){}
+			explicit const_iterator(pointer it) : iterator(it){}
+			explicit const_iterator(const iterator& rhs) : iterator(rhs){}
+			virtual ~const_iterator(){}
+			const T &operator*() const{
+				return (this->_it->_data);
+			}
+		}				const_iterator;
+
+		typedef class reverse_iterator : public it_general{
+		public:
+			reverse_iterator() : it_general(){}
+			explicit reverse_iterator(pointer it) : it_general(it){}
+			reverse_iterator& operator=(const reverse_iterator& rhs) {
+				if (*this == rhs)
+					return *this;
+				this->_it = rhs._it;
+				return *this;
+			}
+			reverse_iterator(const reverse_iterator& rhs){
+				this->_it = rhs._it;
+			}
+			virtual ~reverse_iterator(){}
+			reverse_iterator& operator++() {
+				this->_it--;
+				return *this;
+			}
+			reverse_iterator& operator--() {
+				this->_it++;
+				return *this;
+			}
+			reverse_iterator operator++(int) {
+				reverse_iterator prev_it(*this);
+				this->_it--;
+				return prev_it;
+			}
+			reverse_iterator operator--(int) {
+				reverse_iterator prev_it(*this);
+				this->_it++;
+				return prev_it;
+			}
+			reverse_iterator &operator+=(int n){
+				this->_it -= n;
+				return *this;
+			}
+			reverse_iterator operator+(int n){
+				reverse_iterator tmp(*this);
+				return tmp -= n;
+			}
+			reverse_iterator &operator-=(int n){
+				this->_it += n;
+				return *this;
+			}
+			reverse_iterator operator-(int n){
+				reverse_iterator tmp(*this);
+				return tmp += n;
+			}
+		}				reverse_iterator;
+
+		typedef class const_reverse_iterator : public reverse_iterator {
+		public:
+			const_reverse_iterator() : reverse_iterator(){}
+			explicit const_reverse_iterator(pointer it) : reverse_iterator(it){}
+			explicit const_reverse_iterator(const reverse_iterator& rhs) : reverse_iterator(rhs){}
+			virtual ~const_reverse_iterator(){}
+			const T &operator*() const{
+				return (this->_it->_data);
+			}
+		}				const_reverse_iterator;
 
 		iterator begin(){
 			return (iterator(this->_data));
@@ -338,6 +412,11 @@ namespace ft{
 
 
 	};
+
+//	template<class T, class Allocator>
+//	vector<T, Allocator>::iterator::~iterator() {
+//
+//	}
 
 	template <class T, class Alloc>
 	void swap (vector<T,Alloc>& x, vector<T,Alloc>& y){

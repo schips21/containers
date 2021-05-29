@@ -229,7 +229,8 @@ namespace ft {
 			bool operator!=(const it_general& rhs) const{
 				return (this->_it != rhs._it);
 			}
-			T &operator*() const{
+
+			virtual T &operator*() const{
 				return (this->_it->_data);
 			}
 			T *operator->() const{
@@ -251,6 +252,7 @@ namespace ft {
 			iterator(const iterator& rhs){
 				this->_it = rhs._it;
 			}
+			virtual ~iterator(){}
 			iterator& operator++() {
 				if (this->_it && this->_it->_next)
 					this->_it = this->_it->_next;
@@ -280,6 +282,7 @@ namespace ft {
 			const_iterator() : iterator(){}
 			explicit const_iterator(node *it) : iterator(it){}
 			const_iterator(const iterator& rhs) : iterator(rhs){}
+			virtual ~const_iterator(){}
 			const T &operator*() const{
 				return (this->_it->_data);
 			}
@@ -298,6 +301,7 @@ namespace ft {
 			reverse_iterator(const reverse_iterator& rhs){
 				this->_it = rhs._it;
 			}
+			virtual ~reverse_iterator(){}
 			reverse_iterator& operator++() {
 				if (this->_it && this->_it->_prev)
 					this->_it = this->_it->_prev;
@@ -329,6 +333,7 @@ namespace ft {
 			const_reverse_iterator(const reverse_iterator& rhs){
 				this->_it = rhs._it;
 			}
+			virtual ~const_reverse_iterator(){}
 			const T &operator*() const{
 				return (this->_it->_data);
 			}
