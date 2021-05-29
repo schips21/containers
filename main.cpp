@@ -41,13 +41,18 @@ int main(){
 	it_std-=1;
 	std::cout << it_std[200] << std::endl;
 
-	ft::vector<int> vec2(vec.begin(), vec.end());
-	std::vector<int> vec2_std(vec_std.begin(), vec_std.end());
+//	ft::vector<int> vec2(vec.begin(), vec.end());
+//	std::vector<int> vec2_std(vec_std.begin(), vec_std.end());
 
 //	std::cout << *vec2.begin() << std::endl;
 //	std::cout << *vec2_std.begin() << std::endl;
 //	std::cout << *--vec2.end() << std::endl;
 //	std::cout << *--vec2_std.end() << std::endl;
+	ft::vector<int> vec2;
+	std::vector<int> vec2_std;
+
+	vec2 = vec;
+	vec2_std = vec_std;
 	print_ft_vec(vec2);
 	print_std_vec(vec2_std);
 

@@ -61,13 +61,20 @@ namespace ft{
 			this->delete_vect();
 		}
 
-//		vector& operator= (const vector& x){
-//			if (this == x){
-//				return *this;
-//			}
-//			this->delete_vect();
-//
-//		}
+		vector& operator= (const vector& x){
+			if (*this == x){
+				return *this;
+			}
+			this->delete_vect();
+//			this->_capacity = x._capacity;
+			this->_alloc = x._alloc;
+			iterator it = x.begin();
+			iterator ite = x.end();
+			while (it != ite){
+				this->push_back(*it++);
+			}
+			return *this;
+		}
 
 //		Iterators
 
@@ -449,6 +456,22 @@ namespace ft{
 	template <class T, class Alloc>
 	void swap (vector<T,Alloc>& x, vector<T,Alloc>& y){
 		x.swap(y);
+	}
+
+	template <class T, class Alloc>
+	bool operator== (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs){
+		if (lhs.size() != rhs.size())
+			return false;
+		typename ft::vector<T>::const_iterator it_lhs = lhs.begin();
+		typename ft::vector<T>::const_iterator it_rhs = rhs.begin();
+		typename ft::vector<T>::const_iterator ite_lhs = lhs.end();
+		while (it_lhs != ite_lhs){
+			if (*it_lhs != *it_rhs)
+				return false;
+			it_lhs++;
+			it_rhs++;
+		}
+		return true;
 	}
 }
 
