@@ -75,26 +75,34 @@ namespace ft{
 				_it = it;
 			}
 			~it_general(){}
-
 			//конструктор копирования и оператор = в классе итератор
-
 			bool operator==(const it_general& rhs) const{
 				return (this->_it == rhs._it);
 			}
-
 			bool operator!=(const it_general& rhs) const{
 				return (this->_it != rhs._it);
 			}
-
 			T &operator*() const{
 				return *(this->_it);
 			}
-
 			T *operator->() const{
 				return (this->_it);
 			}
-
-
+			bool operator<(const it_general& rhs) const{
+				return (this->_it < rhs._it);
+			}
+			bool operator>(const it_general& rhs) const{
+				return (this->_it > rhs._it);
+			}
+			bool operator<=(const it_general& rhs) const{
+				return (*this < rhs || *this == rhs);
+			}
+			bool operator>=(const it_general& rhs) const{
+				return (*this > rhs || *this == rhs);
+			}
+			reference operator[] (size_type n){
+				return (this->_it[n]);
+			}
 		};
 
 		typedef class iterator : public it_general{

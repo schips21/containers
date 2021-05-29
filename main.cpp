@@ -18,11 +18,11 @@ int main(){
 	it-=1;
 
 //	std::cout << *it++ << std::endl;
-	std::cout << *it << std::endl;
+	std::cout << it[200] << std::endl;
 
 	it_std-=1;
 //	std::cout << *it_std++ << std::endl;
-	std::cout << *it_std << std::endl;
+	std::cout << it_std[200] << std::endl;
 //	*it_std--;
 //	std::cout << *it_std << std::endl;
 }
