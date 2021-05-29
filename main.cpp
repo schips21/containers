@@ -51,6 +51,9 @@ int main(){
 	ft::vector<int> vec2(vec);
 	std::vector<int> vec2_std(vec_std);
 
+	vec2.assign(++vec.begin(), vec.end());
+	vec2_std.assign(++vec_std.begin(), vec_std.end());
+
 //	vec2 = vec;
 //	vec2_std = vec_std;
 	print_ft_vec(vec2);

@@ -369,11 +369,21 @@ namespace ft{
 
 //		Modifiers
 
-//		template <class InputIterator>
-//		void assign (InputIterator first, InputIterator last){
-//
-//
-//		}
+		template <class InputIterator>
+		void assign (InputIterator first, InputIterator last){
+			int n = 0;
+			InputIterator tmp = first;
+			while (tmp++ != last)
+				n++;
+			this->clear();
+			if (n > _capacity){
+				_alloc.deallocate(_data, _capacity);
+				_data = _alloc.allocate(n);
+				_capacity = n;
+			}
+			while (first != last)
+				this->push_back(*first++);
+		}
 
 		void assign (size_type n, const value_type& val){
 			this->clear();
