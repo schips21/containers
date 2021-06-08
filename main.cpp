@@ -57,8 +57,11 @@ int main(){
 //	it = vec.end();
 
 
-	ft::vector<int> vec(3, 15);
-	std::vector<int> vec_std(3, 15);
+	ft::vector<int> vec;
+	std::vector<int> vec_std;
+
+	ft::vector<int> vec2(3, 100);
+	std::vector<int> vec_std2(3, 100);
 
 	vec_std.push_back(1);
 	vec.push_back(1);
@@ -79,5 +82,15 @@ int main(){
 
 	print_std_vec(vec_std);
 	std::cout << vec_std.size() << std::endl;
-	std::cout << vec_std.capacity() << std::endl;
+	std::cout << vec_std.capacity() << std::endl << std::endl;
+
+	vec2.insert(vec2.begin(), ++vec.begin(), --vec.end());
+	vec_std2.insert(vec_std2.begin(), ++vec_std.begin(), --vec_std.end());
+	print_ft_vec(vec2);
+	std::cout << vec2.size() << std::endl;
+	std::cout << vec2.capacity() << std::endl;
+
+	print_std_vec(vec_std2);
+	std::cout << vec_std2.size() << std::endl;
+	std::cout << vec_std2.capacity() << std::endl;
 }

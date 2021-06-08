@@ -455,6 +455,31 @@ namespace ft{
 			}
 		}
 
+		template <class InputIterator>
+		void insert (iterator position, InputIterator first, InputIterator last, typename enable_if<!std::numeric_limits<InputIterator>::is_specialized>::type * = 0){
+			if (position == this->end()) {
+				while (first != last) {
+					this->push_back(*first);
+					first++;
+				}
+				return;
+			}
+			int len = 0;
+			iterator it_start = this->begin();
+			while (it_start++ != position) {
+				len++;
+			}
+			int n = 0;
+			InputIterator tmp = first;
+			while (tmp++ != last)
+				n++;
+			if (_size + n > _capacity)
+				this->capacity_realloc(_capacity * 2 > (_size + n) ? _capacity * 2 : (_size + n));
+			for (int i = 0; i < n; i++) {
+				this->insert(iterator(_data + len + i), *first++);
+			}
+		}
+
 		void swap (vector& x){
 //			if (x == *this)
 //				return;
