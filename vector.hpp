@@ -437,6 +437,24 @@ namespace ft{
 			return iterator(_data + len);
 		}
 
+		void insert (iterator position, size_type n, const value_type& val){
+			if (position == this->end()) {
+				for (int i = 0; i < n; i++)
+					this->push_back(val);
+				return;
+			}
+			int len = 0;
+			iterator it_start = this->begin();
+			while (it_start++ != position) {
+				len++;
+			}
+			if (_size + n > _capacity)
+				this->capacity_realloc(_capacity * 2 > n ? _capacity * 2 : n);
+			for (int i = 0; i < n; i++) {
+				this->insert(iterator(_data + len + i),val);
+			}
+		}
+
 		void swap (vector& x){
 //			if (x == *this)
 //				return;
