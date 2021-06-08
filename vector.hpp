@@ -398,8 +398,8 @@ namespace ft{
 
 		void push_back (const value_type& val){
 			if (_size + 1 > _capacity)
-				this->capacity_realloc(_capacity + 1);
-//				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
+//				this->capacity_realloc(_capacity + 1);
+				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
 			_alloc.construct(_data + _size, val);
 			_size++;
 		}
@@ -409,6 +409,32 @@ namespace ft{
 				_alloc.destroy(_data + (_size - 1));
 				_size--;
 			}
+		}
+
+		iterator insert (iterator position, const value_type& val){
+			if (position == this->end()) {
+				this->push_back(val);
+				return iterator(_data + (_size - 1));
+			}
+			int len = 0;
+			iterator it_start = this->begin();
+			while (it_start++ != position) {
+				len++;
+			}
+			if (_size + 1 > _capacity)
+				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
+			T tmp;
+			T tmp2 = val;
+			int i = len;
+			for (; i < this->size(); i++) {
+				tmp = _data[i];
+				_alloc.destroy(_data + i);
+				_alloc.construct(_data + i, tmp2);
+				tmp2 = tmp;
+			}
+			_alloc.construct(_data + i, tmp2);
+			_size++;
+			return iterator(_data + len);
 		}
 
 		void swap (vector& x){

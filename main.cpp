@@ -25,44 +25,60 @@ void print_std_vec(const std::vector<T> & vec){
 }
 
 int main(){
-	ft::vector<int> vec(1, 15);
-	std::vector<int> vec_std(1, 15);
-	vec_std.push_back(1);
-	vec.push_back(1);
-	vec_std.push_back(10);
-	vec.push_back(10);
+//	ft::vector<int> vec(1, 15);
+//	std::vector<int> vec_std(1, 15);
+//	vec_std.push_back(1);
+//	vec.push_back(1);
+//	vec_std.push_back(10);
+//	vec.push_back(10);
+//
+//	std::vector<int>::iterator it_std = vec_std.end();
+//	ft::vector<int>::iterator it = vec.end();
+//
+//	it--;
+//	it_std--;
+//
+//	std::vector<int>::iterator it_std2;
+//	ft::vector<int>::iterator it2;
+//	std::cout << std::endl;
+//	it_std2 = vec_std.insert(it_std, 20);
+//	it2 = vec.insert(it, 20);
+//	print_ft_vec(vec);
+//	std::cout << *it2 <<std::endl;
+//	std::cout << vec.size() << std::endl;
+//	std::cout << vec.capacity() << std::endl;
+//
+//	print_std_vec(vec_std);
+//	std::cout << *it_std2 <<std::endl;
+//	std::cout << vec_std.size() << std::endl;
+//	std::cout << vec_std.capacity() << std::endl;
+//
+//	it_std = vec_std.end();
+//	it = vec.end();
+
+
+	ft::vector<int> vec;
+	std::vector<int> vec_std;
 
 	std::vector<int>::iterator it_std = vec_std.end();
 	ft::vector<int>::iterator it = vec.end();
 
-	it-=1;
-	std::cout << it[200] << std::endl;
+	std::vector<int>::iterator it_std2;
+	ft::vector<int>::iterator it2;
+	it_std2 = vec_std.insert(it_std, 20);
+	it2 = vec.insert(it, 20);
 
-	it_std-=1;
-	std::cout << it_std[200] << std::endl;
+	print_ft_vec(vec);
+//	std::cout << *it2 <<std::endl;
+//	std::cout << vec.size() << std::endl;
+//	std::cout << vec.capacity() << std::endl;
 
-//	ft::vector<int> vec2(vec.begin(), vec.end());
-//	std::vector<int> vec2_std(vec_std.begin(), vec_std.end());
-
-//	std::cout << *vec2.begin() << std::endl;
-//	std::cout << *vec2_std.begin() << std::endl;
-//	std::cout << *--vec2.end() << std::endl;
-//	std::cout << *--vec2_std.end() << std::endl;
-	ft::vector<int> vec2(vec);
-	std::vector<int> vec2_std(vec_std);
-
-	vec2.assign(++vec.begin(), vec.end());
-	vec2_std.assign(++vec_std.begin(), vec_std.end());
-
-//	vec2 = vec;
-//	vec2_std = vec_std;
-	print_ft_vec(vec2);
-	print_std_vec(vec2_std);
-
-	std::cout << vec2.capacity() << std::endl;
-	std::cout << vec2_std.capacity() << std::endl;
-	std::cout << vec2.size() << std::endl;
-	std::cout << vec2_std.size() << std::endl;
+	print_std_vec(vec_std);
+//	std::cout << *it_std2 <<std::endl;
+//	std::cout << vec_std.size() << std::endl;
+//	std::cout << vec_std.capacity() << std::endl;
+//	std::cout << *it_std2 << std::endl;
+//	print_std_vec(vec_std);
 }
 
 //int main(){
