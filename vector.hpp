@@ -499,6 +499,22 @@ namespace ft{
 			return (iterator(_data + len));
 		}
 
+		iterator erase (iterator first, iterator last) {
+			int n = 0;
+			iterator tmp = first;
+			int len = 0;
+			iterator it_start = this->begin();
+			while (it_start++ != first) {
+				len++;
+			}
+			while (tmp++ != last)
+				n++;
+			for (int i = 0; i < n; i++) {
+				this->erase(first);
+			}
+			return (iterator(_data + len));
+		}
+
 		void swap (vector& x){
 //			if (x == *this)
 //				return;

@@ -57,8 +57,8 @@ int main(){
 //	it = vec.end();
 
 
-	ft::vector<int> vec(2, 20);
-	std::vector<int> vec_std(2, 20);
+	ft::vector<int> vec(1, 20);
+	std::vector<int> vec_std(1, 20);
 
 	ft::vector<int> vec2(3, 100);
 	std::vector<int> vec_std2(3, 100);
@@ -68,13 +68,20 @@ int main(){
 	vec_std.push_back(10);
 	vec.push_back(10);
 
-	std::vector<int>::iterator it_std = vec_std.begin();
-	ft::vector<int>::iterator it = vec.begin();
+	std::vector<int>::iterator it_std = ++vec_std.begin();
+	ft::vector<int>::iterator it = ++vec.begin();
+
+	print_ft_vec(vec);
+	std::cout << vec.size() << std::endl;
+	std::cout << vec.capacity() << std::endl;
+	print_std_vec(vec_std);
+	std::cout << vec_std.size() << std::endl;
+	std::cout << vec_std.capacity() << std::endl;
 
 	std::vector<int>::iterator it_std2;
 	ft::vector<int>::iterator it2;
-	it_std2 = vec_std.erase(++it_std);
-	it2 = vec.erase(++it);
+	it_std2 = vec_std.erase(++it_std, vec_std.end());
+	it2 = vec.erase(++it, vec.end());
 
 	print_ft_vec(vec);
 	std::cout << vec.size() << std::endl;
@@ -83,7 +90,7 @@ int main(){
 
 	print_std_vec(vec_std);
 	std::cout << vec_std.size() << std::endl;
-	std::cout << vec_std.capacity() << std::endl << std::endl;
+	std::cout << vec_std.capacity() << std::endl;
 	std::cout << *it_std2 << std::endl;
 
 //	vec2.insert(vec2.begin(), ++vec.begin(), --vec.end());
