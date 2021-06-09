@@ -480,6 +480,25 @@ namespace ft{
 			}
 		}
 
+		iterator erase (iterator position) {
+			if (position == this->end()) {
+				this->pop_back();
+				return iterator(_data + _size);
+			}
+			int len = 0;
+			iterator it_start = this->begin();
+			while (it_start++ != position) {
+				len++;
+			}
+			_alloc.destroy(_data + len);
+			for (int i = len; i < this->size(); i++) {
+				_alloc.construct(_data + i, _data[i + 1]);
+				_alloc.destroy(_data + i + 1);
+			}
+			_size--;
+			return (iterator(_data + len));
+		}
+
 		void swap (vector& x){
 //			if (x == *this)
 //				return;
