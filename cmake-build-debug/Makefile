@@ -142,32 +142,32 @@ git_containers/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/build
 .PHONY : git_containers/fast
 
-main.o: main.cpp.o
+map_test.o: map_test.cpp.o
 
-.PHONY : main.o
+.PHONY : map_test.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.o
-.PHONY : main.cpp.o
+map_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/map_test.cpp.o
+.PHONY : map_test.cpp.o
 
-main.i: main.cpp.i
+map_test.i: map_test.cpp.i
 
-.PHONY : main.i
+.PHONY : map_test.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.i
-.PHONY : main.cpp.i
+map_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/map_test.cpp.i
+.PHONY : map_test.cpp.i
 
-main.s: main.cpp.s
+map_test.s: map_test.cpp.s
 
-.PHONY : main.s
+.PHONY : map_test.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.s
-.PHONY : main.cpp.s
+map_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/map_test.cpp.s
+.PHONY : map_test.cpp.s
 
 # Help Target
 help:
@@ -178,9 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... git_containers"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... map_test.o"
+	@echo "... map_test.i"
+	@echo "... map_test.s"
 .PHONY : help
 
 

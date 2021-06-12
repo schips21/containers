@@ -8,5 +8,6 @@ include_directories(.)
 add_executable(git_containers
 #        list.hpp
 #        queue_test.cpp)
-        main.cpp)
+#        main.cpp)
 #        list_test.cpp)
+        map_test.cpp)

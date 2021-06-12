@@ -6,27 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/schips/Desktop/git_containers/list.hpp
+/Users/schips/Desktop/git_containers/map.hpp
 iostream
 -
 
-/Users/schips/Desktop/git_containers/main.cpp
-list.hpp
-/Users/schips/Desktop/git_containers/list.hpp
-list
--
-stack.hpp
-/Users/schips/Desktop/git_containers/stack.hpp
-vector.hpp
-/Users/schips/Desktop/git_containers/vector.hpp
-vector
--
-
-/Users/schips/Desktop/git_containers/stack.hpp
-list.hpp
-/Users/schips/Desktop/git_containers/list.hpp
-
-/Users/schips/Desktop/git_containers/vector.hpp
-iostream
+/Users/schips/Desktop/git_containers/map_test.cpp
+map.hpp
+/Users/schips/Desktop/git_containers/map.hpp
+map
 -
 
