@@ -86,11 +86,66 @@ namespace ft {
 //			 const allocator_type& alloc = allocator_type()){
 //
 //		}
-		void create_root(const value_type& val) {
+//		map (const map& x){
+//
+//		}
+//		~map();
+
+//		Capacity
+		bool empty() const{
+			if (_size == 0)
+				return true;
+			return false;
+		}
+		size_type size() const{
+			return _size;
+		}
+		size_type max_size() const{
+			return (std::numeric_limits<size_type>::max() / sizeof(node));
+		}
+
+//		Element access
+		mapped_type& operator[] (const key_type& k){
+			node *tmp = _root;
+			if (_root == _shadow) {
+				return create_root(std::pair<T, T>(k, NULL));
+			}
+			while(tmp != _shadow){
+				if (!_compare(k, tmp->value.first) && !_compare(tmp->value.first, k))
+					return tmp->value.second;
+				else if (_compare(k, tmp->value.first)) {
+					if (tmp->left_child == _shadow)
+						break;
+					tmp = tmp->left_child;
+				}
+				else{
+					if (tmp->right_child == _shadow)
+						break;
+					tmp = tmp->right_child;
+				}
+			}
+			if (_compare(k, tmp->value.first)){
+				tmp->left_child = new node(std::pair<T, T>(k, NULL));
+				tmp->left_child->parent = tmp;
+				tmp = tmp->left_child;
+				tmp->left_child = tmp->right_child = _shadow;
+			}
+			else{
+				tmp->right_child = new node(std::pair<T, T>(k, NULL));
+				tmp->right_child->parent = tmp;
+				tmp = tmp->right_child;
+				tmp->left_child = tmp->right_child = _shadow;
+			}
+			_size++;
+			return tmp->value.second;
+		}
+
+		mapped_type& create_root(const value_type& val) {
 			_root = new node(val);
 			_root->parent = _root->left_child = _root->right_child = _shadow;
 			_shadow->parent = _shadow->left_child = _shadow->right_child = _root;
 			_size++;
+			return _root->value.second;
 		}
 
 		void insert_elem(const value_type& val) {
@@ -101,14 +156,24 @@ namespace ft {
 			}
 			while(tmp != _shadow){
 				//если новое значение меньше
-				if (!_compare(val.first, tmp->value.first) && !_compare(val.first, tmp->value.first))
+//				std::cout << "TMP " << tmp->value.first << std::endl;
+//				std::cout << "VAL " << val.first << std::endl;
+//				std::cout << _compare(val.first, tmp->value.first) << std::endl << _compare(val.first, tmp->value.first) << std::endl;
+				if (!_compare(val.first, tmp->value.first) && !_compare(tmp->value.first, val.first))
 					return;
-				if (_compare(val.first, tmp->value.first))
+				if (_compare(val.first, tmp->value.first)) {
+					if (tmp->left_child == _shadow)
+						break;
 					tmp = tmp->left_child;
-				else
+				}
+				else {
+					if (tmp->right_child == _shadow)
+						break;
 					tmp = tmp->right_child;
+				}
 			}
-			tmp = tmp->parent;
+
+//			tmp = tmp->parent;
 			if (_compare(val.first, tmp->value.first)){
 				tmp->left_child = new node(val);
 				tmp->left_child->parent = tmp;
