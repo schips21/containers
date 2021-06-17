@@ -3,11 +3,22 @@
 
 int main() {
 	ft::map<int, int> ft_map;
-	std::cout << ft_map[2] << std::endl;
 	ft_map.insert_elem(std::pair<const int, int>(5, 10));
-	ft_map.insert_elem(std::pair<const int, int>(4, 11));
-	std::cout << ft_map[4] << std::endl;
-	std::cout << ft_map[6] << std::endl;
-	std::map<int, int> map;
+	ft_map.insert_elem(std::pair<const int, int>(3, 11));
+	ft_map.insert_elem(std::pair<const int, int>(10, 11));
+	ft_map.insert_elem(std::pair<const int, int>(6, 11));
+	ft::map<int, int>::const_iterator it = ft_map.begin();
+	++it;
+	++it;
+//	std::cout << *it << std::endl;
+
+//	std::map<int, int> map;
+//	map.insert(std::pair<int, int>(-10, 10));
+//	map.insert(std::pair<int, int>(1, 50));
+//	std::map<int, int>::iterator it = map.begin();
+//	std::cout << it->first << std::endl;
+//	map.insert(std::pair<int, int>(-20, 1));
+//	it = map.end();
+//	std::cout << (--it)->first << std::endl;
 	return 0;
 }

@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/schips/Desktop/git_containers/map.hpp
+/Users/tatiana/Desktop/containers/map.hpp
 iostream
 -
 
-/Users/schips/Desktop/git_containers/map_test.cpp
+/Users/tatiana/Desktop/containers/map_test.cpp
 map.hpp
-/Users/schips/Desktop/git_containers/map.hpp
+/Users/tatiana/Desktop/containers/map.hpp
 map
 -
 

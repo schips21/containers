@@ -188,6 +188,128 @@ namespace ft {
 			}
 			_size++;
 		}
+
+		node *find_min_key() {
+			node *tmp = _root;
+			while (tmp->left_child != _shadow)
+				tmp = tmp->left_child;
+			return tmp;
+		}
+
+//	ITERATORS
+	private:
+		class it_general{
+		protected:
+			node *_it;
+			node *_shad;
+
+			node *max_node(node *start) {
+				while (start->right_child != _shad)
+					start = start->right_child;
+				return start;
+			}
+			node *min_node(node *start) {
+				while (start->left_child != _shad)
+					start = start->left_child;
+				return start;
+			}
+		public:
+			it_general(){
+				_it = NULL;
+				_shad = NULL;
+			}
+			it_general(node *it, node *shadow){
+				_it = it;
+				_shad = shadow;
+			}
+//			конструктор копирования и оператор = в классе итератор
+			~it_general(){}
+			bool operator==(const it_general& rhs) const{
+				return (this->_it == rhs._it);
+			}
+			bool operator!=(const it_general& rhs) const{
+				return (this->_it != rhs._it);
+			}
+
+			value_type &operator*(){
+				return (this->_it->value);
+			}
+			T *operator->() const{
+				return (&(this->_it->value));
+			}
+			friend class map<Key, T>;
+			friend class node;
+		};
+	public:
+		typedef class iterator : public it_general {
+		public:
+			iterator() : it_general(){}
+			iterator(node *it, node *shadow) : it_general(it, shadow){}
+			iterator& operator=(const iterator& rhs) {
+				if (*this == rhs)
+					return *this;
+				this->_it = rhs._it;
+				this->_shad = rhs._shad;
+				return *this;
+			}
+			iterator(const iterator& rhs){
+				this->_it = rhs._it;
+				this->_shad = rhs._shad;
+			}
+			virtual ~iterator(){}
+			iterator& operator++() {
+				if (this->_it->right_child != this->_shad)
+					this->_it = this->min_node(this->_it->right_child);
+				else {
+					while (this->_it->parent != this->_shad && this->_it->parent->left_child != this->_it)
+						this->_it = this->_it->parent;
+					this->_it = this->_it->parent;
+				}
+				return *this;
+			}
+			iterator& operator++(int) {
+				iterator prev_it(*this);
+				++(*this);
+				return prev_it;
+			}
+			iterator& operator--() {
+				if (this->_it == this->_shad || this->_it->left_child != this->_shad)
+					this->_it = this->max_node(this->_it->left_child);
+				else {
+					while (this->_it->parent != this->_shad && this->_it->parent->right_child != this->_it)
+						this->_it = this->_it->parent;
+					this->_it = this->_it->parent;
+				}
+				return *this;
+			}
+			iterator& operator--(int) {
+				iterator prev_it(*this);
+				--(*this);
+				return prev_it;
+			}
+		}				iterator;
+		typedef class const_iterator : public iterator {
+		public:
+			const_iterator() : iterator(){}
+			const_iterator(node *it, node *shadow) : iterator(it, shadow){}
+			const_iterator(const iterator& rhs) : iterator(rhs){}
+			virtual ~const_iterator(){}
+			const value_type &operator*() const{
+				return (this->_it->value);
+			}
+		}				const_iterator;
+		iterator begin() {
+			return iterator(this->find_min_key(), _shadow);
+		}
+		const_iterator begin() const {
+			return const_iterator(this->find_min_key(), _shadow);
+		}
+		iterator end() {
+			return iterator (_shadow, _shadow);
+		}
+		const_iterator end() const {
+			return const_iterator(_shadow, _shadow);
+		}
 	};
 }
 
