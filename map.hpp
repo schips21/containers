@@ -188,7 +188,12 @@ namespace ft {
 			}
 			_size++;
 		}
-
+		node *find_max_key() {
+			node *tmp = _root;
+			while (tmp->right_child != _shadow)
+				tmp = tmp->right_child;
+			return tmp;
+		}
 		node *find_min_key() {
 			node *tmp = _root;
 			while (tmp->left_child != _shadow)
@@ -234,7 +239,7 @@ namespace ft {
 			value_type &operator*(){
 				return (this->_it->value);
 			}
-			T *operator->() const{
+			value_type *operator->() const{
 				return (&(this->_it->value));
 			}
 			friend class map<Key, T>;
@@ -288,8 +293,8 @@ namespace ft {
 				return prev_it;
 			}
 		}				iterator;
+
 		typedef class const_iterator : public iterator {
-		public:
 			const_iterator() : iterator(){}
 			const_iterator(node *it, node *shadow) : iterator(it, shadow){}
 			const_iterator(const iterator& rhs) : iterator(rhs){}
@@ -298,17 +303,89 @@ namespace ft {
 				return (this->_it->value);
 			}
 		}				const_iterator;
+
+		typedef class reverse_iterator : public it_general {
+		public:
+			reverse_iterator() : it_general(){}
+			reverse_iterator(node *it, node *shadow) : it_general(it, shadow){}
+			reverse_iterator& operator=(const reverse_iterator& rhs) {
+				if (*this == rhs)
+					return *this;
+				this->_it = rhs._it;
+				this->_shad = rhs._shad;
+				return *this;
+			}
+			reverse_iterator(const reverse_iterator& rhs){
+				this->_it = rhs._it;
+				this->_shad = rhs._shad;
+			}
+			virtual ~reverse_iterator(){}
+			reverse_iterator& operator++() {
+				if (this->_it->left_child != this->_shad)
+					this->_it = this->max_node(this->_it->left_child);
+				else {
+					while (this->_it->parent != this->_shad && this->_it->parent->right_child != this->_it)
+						this->_it = this->_it->parent;
+					this->_it = this->_it->parent;
+				}
+				return *this;
+			}
+			reverse_iterator& operator++(int) {
+				reverse_iterator prev_it(*this);
+				++(*this);
+				return prev_it;
+			}
+			reverse_iterator& operator--() {
+				if (this->_it == this->_shad || this->_it->right_child != this->_shad)
+					this->_it = this->min_node(this->_it->right_child);
+				else {
+					while (this->_it->parent != this->_shad && this->_it->parent->left_child != this->_it)
+						this->_it = this->_it->parent;
+					this->_it = this->_it->parent;
+				}
+				return *this;
+			}
+			reverse_iterator& operator--(int) {
+				reverse_iterator prev_it(*this);
+				--(*this);
+				return prev_it;
+			}
+		}				reverse_iterator;
+
+		typedef class const_reverse_iterator : public iterator {
+		public:
+			const_reverse_iterator() : reverse_iterator(){}
+			const_reverse_iterator(node *it, node *shadow) : reverse_iterator(it, shadow){}
+			const_reverse_iterator(const reverse_iterator& rhs) : reverse_iterator(rhs){}
+			virtual ~const_reverse_iterator(){}
+			const value_type &operator*() const{
+				return (this->_it->value);
+			}
+		}				const_reverse_iterator;
+
 		iterator begin() {
 			return iterator(this->find_min_key(), _shadow);
 		}
 		const_iterator begin() const {
 			return const_iterator(this->find_min_key(), _shadow);
 		}
+		reverse_iterator rbegin(){
+			return reverse_iterator(this->find_max_key(), _shadow);
+		}
+		const_reverse_iterator rbegin() const {
+			return const_reverse_iterator(this->find_max_key(), _shadow);
+		}
 		iterator end() {
 			return iterator (_shadow, _shadow);
 		}
 		const_iterator end() const {
 			return const_iterator(_shadow, _shadow);
+		}
+		reverse_iterator rend() {
+			return reverse_iterator(_shadow, _shadow);
+		}
+		const_reverse_iterator rend() const {
+			return const_reverse_iterator(_shadow, _shadow);
 		}
 	};
 }
