@@ -96,9 +96,19 @@ namespace ft {
 			}
 		}
 
-//		map (const map& x){
-//
-//		}
+		map (const map& x){
+			this->_size = 0;
+			this->_alloc = x._alloc;
+			this->_compare = x._compare;
+			make_shadow();
+			_root = _shadow;
+			iterator it = x.begin();
+			iterator ite = x.end();
+			while (it != ite) {
+				this->insert_elem(*it);
+				it++;
+			}
+		}
 //		~map();
 
 //		Capacity
@@ -193,13 +203,13 @@ namespace ft {
 			_size++;
 		}
 
-		node *find_max_key() {
+		node *find_max_key() const{
 			node *tmp = _root;
 			while (tmp->right_child != _shadow)
 				tmp = tmp->right_child;
 			return tmp;
 		}
-		node *find_min_key() {
+		node *find_min_key() const{
 			node *tmp = _root;
 			while (tmp->left_child != _shadow)
 				tmp = tmp->left_child;
@@ -300,6 +310,7 @@ namespace ft {
 		}				iterator;
 
 		typedef class const_iterator : public iterator {
+		public:
 			const_iterator() : iterator(){}
 			const_iterator(node *it, node *shadow) : iterator(it, shadow){}
 			const_iterator(const iterator& rhs) : iterator(rhs){}
