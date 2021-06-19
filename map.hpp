@@ -111,6 +111,8 @@ namespace ft {
 		}
 //		~map();
 
+//		map& operator= (const map& x);
+
 //		Capacity
 		bool empty() const{
 			if (_size == 0)
@@ -168,40 +170,7 @@ namespace ft {
 			return _root->value.second;
 		}
 
-		void insert_elem(const value_type& val) {
-			node *tmp = _root;
-			if (_root == _shadow){
-				create_root(val);
-				return;
-			}
-			while(tmp != _shadow){
-				if (!_compare(val.first, tmp->value.first) && !_compare(tmp->value.first, val.first))
-					return;
-				if (_compare(val.first, tmp->value.first)) {
-					if (tmp->left_child == _shadow)
-						break;
-					tmp = tmp->left_child;
-				}
-				else {
-					if (tmp->right_child == _shadow)
-						break;
-					tmp = tmp->right_child;
-				}
-			}
-			if (_compare(val.first, tmp->value.first)){
-				tmp->left_child = new node(val);
-				tmp->left_child->parent = tmp;
-				tmp = tmp->left_child;
-				tmp->left_child = tmp->right_child = _shadow;
-			}
-			else{
-				tmp->right_child = new node(val);
-				tmp->right_child->parent = tmp;
-				tmp = tmp->right_child;
-				tmp->left_child = tmp->right_child = _shadow;
-			}
-			_size++;
-		}
+
 
 		node *find_max_key() const{
 			node *tmp = _root;
@@ -402,6 +371,58 @@ namespace ft {
 		}
 		const_reverse_iterator rend() const {
 			return const_reverse_iterator(_shadow, _shadow);
+		}
+
+		std::pair<iterator,bool> insert_elem(const value_type& val) {
+			node *tmp = _root;
+			if (_root == _shadow){
+				create_root(val);
+				return(std::pair<iterator,bool>(iterator(_root, _shadow), true));
+			}
+			while(tmp != _shadow){
+				if (!_compare(val.first, tmp->value.first) && !_compare(tmp->value.first, val.first))
+					return(std::pair<iterator,bool>(iterator(tmp, _shadow), false));
+				if (_compare(val.first, tmp->value.first)) {
+					if (tmp->left_child == _shadow)
+						break;
+					tmp = tmp->left_child;
+				}
+				else {
+					if (tmp->right_child == _shadow)
+						break;
+					tmp = tmp->right_child;
+				}
+			}
+			if (_compare(val.first, tmp->value.first)){
+				tmp->left_child = new node(val);
+				tmp->left_child->parent = tmp;
+				tmp = tmp->left_child;
+				tmp->left_child = tmp->right_child = _shadow;
+			}
+			else{
+				tmp->right_child = new node(val);
+				tmp->right_child->parent = tmp;
+				tmp = tmp->right_child;
+				tmp->left_child = tmp->right_child = _shadow;
+			}
+			_size++;
+			return(std::pair<iterator,bool>(iterator(tmp, _shadow), true));
+		}
+
+		std::pair<iterator,bool> insert (const value_type& val){
+			return this->insert_elem(val);
+		}
+
+		iterator insert (iterator position, const value_type& val){
+			return this->insert_elem(val).first;
+		}
+
+		template <class InputIterator>
+		void insert (InputIterator first, InputIterator last){
+			while (first != last) {
+				this->insert_elem(*first);
+				first++;
+			}
 		}
 	};
 }
