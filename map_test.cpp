@@ -7,10 +7,9 @@ int main() {
 	ft_map.insert_elem(std::pair<const int, int>(3, 11));
 	ft_map.insert_elem(std::pair<const int, int>(10, 11));
 	ft_map.insert_elem(std::pair<const int, int>(6, 11));
-	ft::map<int, int>::reverse_iterator it = ft_map.rend();
-	--it;
-	std::cout << (*it).first << std::endl;
-	--it;
+	ft::map<int, int>::iterator it = ft_map.begin();
+	it++;
+	ft::map<int, int> ft_map2(it, ft_map.end());
 
 //	std::map<int, int> map;
 //	map.insert(std::pair<int, int>(-10, 10));

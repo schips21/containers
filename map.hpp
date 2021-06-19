@@ -80,12 +80,22 @@ namespace ft {
 			make_shadow();
 			_root = _shadow;
 		}
-//		template <class InputIterator>
-//		map (InputIterator first, InputIterator last,
-//			 const key_compare& comp = key_compare(),
-//			 const allocator_type& alloc = allocator_type()){
-//
-//		}
+
+		template <class InputIterator>
+		map (InputIterator first, InputIterator last,
+			 const key_compare& comp = key_compare(),
+			 const allocator_type& alloc = allocator_type()){
+			_size = 0;
+			_compare = comp;
+			_alloc = alloc;
+			make_shadow();
+			_root = _shadow;
+			while (first != last) {
+				this->insert_elem(*first);
+				first++;
+			}
+		}
+
 //		map (const map& x){
 //
 //		}
@@ -155,10 +165,6 @@ namespace ft {
 				return;
 			}
 			while(tmp != _shadow){
-				//если новое значение меньше
-//				std::cout << "TMP " << tmp->value.first << std::endl;
-//				std::cout << "VAL " << val.first << std::endl;
-//				std::cout << _compare(val.first, tmp->value.first) << std::endl << _compare(val.first, tmp->value.first) << std::endl;
 				if (!_compare(val.first, tmp->value.first) && !_compare(tmp->value.first, val.first))
 					return;
 				if (_compare(val.first, tmp->value.first)) {
@@ -172,8 +178,6 @@ namespace ft {
 					tmp = tmp->right_child;
 				}
 			}
-
-//			tmp = tmp->parent;
 			if (_compare(val.first, tmp->value.first)){
 				tmp->left_child = new node(val);
 				tmp->left_child->parent = tmp;
@@ -188,6 +192,7 @@ namespace ft {
 			}
 			_size++;
 		}
+
 		node *find_max_key() {
 			node *tmp = _root;
 			while (tmp->right_child != _shadow)
