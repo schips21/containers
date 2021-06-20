@@ -424,6 +424,55 @@ namespace ft {
 				first++;
 			}
 		}
+
+		void erase (iterator position){
+			if (position._it->left_child == _shadow && position._it->right_child == _shadow){
+				if (position._it->parent->left_child == position._it)
+					position._it->parent->left_child = _shadow;
+				else
+					position._it->parent->right_child = _shadow;
+				if (_root == position._it)
+					_root = _shadow;
+				delete position._it;
+			}
+			else if (position._it->left_child == _shadow && position._it->right_child != _shadow){
+				if (position._it->parent->left_child == position._it)
+					position._it->parent->left_child = position._it->right_child;
+				else
+					position._it->parent->right_child = position._it->right_child;
+				if (_root == position._it)
+					_root = position._it->right_child;
+				delete position._it;
+			}
+			else if (position._it->left_child != _shadow && position._it->right_child == _shadow){
+				if (position._it->parent->left_child == position._it)
+					position._it->parent->left_child = position._it->left_child;
+				else
+					position._it->parent->right_child = position._it->left_child;
+				if (_root == position._it)
+					_root = position._it->left_child;
+				delete position._it;
+			}
+			else{
+				node *tmp = position._it->right_child;
+				while (tmp->left_child != _shadow)
+					tmp = tmp->left_child;
+				tmp->parent->left_child = tmp->right_child;
+				tmp->parent = position._it->parent;
+				tmp->left_child = position._it->left_child;
+				tmp->right_child = position._it->right_child;
+				position._it->left_child->parent = tmp;
+				position._it->right_child->parent = tmp;
+				if (position._it->parent->left_child == position._it)
+					position._it->parent->left_child = tmp;
+				else
+					position._it->parent->right_child = tmp;
+				if (_root == position._it)
+					_root = tmp;
+				delete position._it;
+			}
+			_size--;
+		}
 	};
 }
 
