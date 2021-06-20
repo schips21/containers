@@ -523,6 +523,10 @@ namespace ft {
 			x._compare = tmp_comp;
 		}
 
+		void clear(){
+			this->erase(this->begin(), this->end());
+		}
+
 		iterator find (const key_type& k){
 			node *tmp = _root;
 			while(tmp != _shadow){
