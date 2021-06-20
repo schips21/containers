@@ -474,11 +474,42 @@ namespace ft {
 			_size--;
 		}
 
+		size_type erase (const key_type& k){
+			iterator it;
+			if ((it = this->find(k)) != this->end()){
+				this->erase(it);
+				return 1;
+			}
+			return 0;
+		}
+
+		void erase (iterator first, iterator last){
+			iterator tmp = first;
+			while(tmp != last){
+				first = tmp;
+				tmp++;
+				this->erase(first);
+			}
+		}
+
 		iterator find (const key_type& k){
 			node *tmp = _root;
 			while(tmp != _shadow){
 				if (!_compare(k, tmp->value.first) && !_compare(tmp->value.first, k))
 					return iterator(tmp, _shadow);
+				else if (_compare(k, tmp->value.first))
+					tmp = tmp->left_child;
+				else
+					tmp = tmp->right_child;
+			}
+			return this->end();
+		}
+
+		const_iterator find (const key_type& k) const{
+			node *tmp = _root;
+			while(tmp != _shadow){
+				if (!_compare(k, tmp->value.first) && !_compare(tmp->value.first, k))
+					return const_iterator(tmp, _shadow);
 				else if (_compare(k, tmp->value.first))
 					tmp = tmp->left_child;
 				else

@@ -8,8 +8,7 @@ int main() {
 	ft_map.insert_elem(std::pair<const int, int>(10, 11));
 	ft_map.insert_elem(std::pair<const int, int>(6, 11));
 	ft::map<int, int>::iterator it = ++ft_map.begin();
-	ft_map.erase(it);
-	it = ft_map.find(20);
+	ft_map.erase(it, ft_map.end());
 
 //	ft::map<int, int> ft_map2;
 //	ft_map2.insert_elem(std::pair<const int, int>(9, 11));
