@@ -540,6 +540,12 @@ namespace ft {
 			return this->end();
 		}
 
+		size_type count (const key_type& k) const{
+			if (this->find(k) != this->end())
+				return 1;
+			return 0;
+		}
+
 		const_iterator find (const key_type& k) const{
 			node *tmp = _root;
 			while(tmp != _shadow){
