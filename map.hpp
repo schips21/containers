@@ -558,6 +558,10 @@ namespace ft {
 			}
 			return this->end();
 		}
+
+		key_compare key_comp() const{
+			return _compare;
+		}
 	};
 }
 
