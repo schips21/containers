@@ -440,6 +440,7 @@ namespace ft {
 					position._it->parent->left_child = position._it->right_child;
 				else
 					position._it->parent->right_child = position._it->right_child;
+				position._it->right_child->parent = position._it->parent;
 				if (_root == position._it)
 					_root = position._it->right_child;
 				delete position._it;
@@ -449,6 +450,7 @@ namespace ft {
 					position._it->parent->left_child = position._it->left_child;
 				else
 					position._it->parent->right_child = position._it->left_child;
+				position._it->left_child->parent = position._it->parent;
 				if (_root == position._it)
 					_root = position._it->left_child;
 				delete position._it;
@@ -457,11 +459,14 @@ namespace ft {
 				node *tmp = position._it->right_child;
 				while (tmp->left_child != _shadow)
 					tmp = tmp->left_child;
-				tmp->parent->left_child = tmp->right_child;
+				if (tmp != position._it->right_child)
+					tmp->parent->left_child = tmp->right_child;
 				tmp->parent = position._it->parent;
 				tmp->left_child = position._it->left_child;
-				tmp->right_child = position._it->right_child;
+				if (tmp != position._it->right_child)
+					tmp->right_child = position._it->right_child;
 				position._it->left_child->parent = tmp;
+					if (tmp != position._it->right_child)
 				position._it->right_child->parent = tmp;
 				if (position._it->parent->left_child == position._it)
 					position._it->parent->left_child = tmp;
