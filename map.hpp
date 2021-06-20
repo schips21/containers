@@ -473,6 +473,19 @@ namespace ft {
 			}
 			_size--;
 		}
+
+		iterator find (const key_type& k){
+			node *tmp = _root;
+			while(tmp != _shadow){
+				if (!_compare(k, tmp->value.first) && !_compare(tmp->value.first, k))
+					return iterator(tmp, _shadow);
+				else if (_compare(k, tmp->value.first))
+					tmp = tmp->left_child;
+				else
+					tmp = tmp->right_child;
+			}
+			return this->end();
+		}
 	};
 }
 
