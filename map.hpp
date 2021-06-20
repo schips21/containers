@@ -256,7 +256,7 @@ namespace ft {
 				}
 				return *this;
 			}
-			iterator& operator++(int) {
+			iterator operator++(int) {
 				iterator prev_it(*this);
 				++(*this);
 				return prev_it;
@@ -271,7 +271,7 @@ namespace ft {
 				}
 				return *this;
 			}
-			iterator& operator--(int) {
+			iterator operator--(int) {
 				iterator prev_it(*this);
 				--(*this);
 				return prev_it;
@@ -466,8 +466,8 @@ namespace ft {
 				if (tmp != position._it->right_child)
 					tmp->right_child = position._it->right_child;
 				position._it->left_child->parent = tmp;
-					if (tmp != position._it->right_child)
-				position._it->right_child->parent = tmp;
+				if (tmp != position._it->right_child)
+					position._it->right_child->parent = tmp;
 				if (position._it->parent->left_child == position._it)
 					position._it->parent->left_child = tmp;
 				else
@@ -495,6 +495,32 @@ namespace ft {
 				tmp++;
 				this->erase(first);
 			}
+		}
+
+		void swap (map& x){
+			node *tmp_node;
+			size_type tmp_size;
+			Alloc tmp_alloc;
+			Compare tmp_comp;
+
+			tmp_node = this->_shadow;
+			this->_shadow = x._shadow;
+			x._shadow = tmp_node;
+			tmp_node = this->_root;
+			this->_root = x._root;
+			x._root = tmp_node;
+
+			tmp_size = this->_size;
+			this->_size = x._size;
+			x._size = tmp_size;
+
+			tmp_alloc = this->_alloc;
+			this->_alloc = x._alloc;
+			x._alloc = tmp_alloc;
+
+			tmp_comp = this->_compare;
+			this->_compare = x._compare;
+			x._compare = tmp_comp;
 		}
 
 		iterator find (const key_type& k){
