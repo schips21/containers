@@ -641,6 +641,12 @@ namespace ft {
 					 const map<Key,T,Compare,Alloc>& rhs ){
 		return (lhs > rhs || lhs == rhs);
 	}
+
+	template< class Key, class T, class Compare, class Alloc >
+	void swap(map<Key,T,Compare,Alloc>& lhs,
+			  map<Key,T,Compare,Alloc>& rhs ){
+		lhs.swap(rhs);
+	}
 }
 
 #endif
