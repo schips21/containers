@@ -55,6 +55,9 @@ namespace ft {
 //			}
 			node(const value_type& val) : value(val){
 			}
+			node(const node & other) : value(other.value){
+
+			}
 			~node() {}
 		};
 	private:
@@ -109,9 +112,22 @@ namespace ft {
 				it++;
 			}
 		}
-//		~map();
+		~map(){
+			this->clear();
+		}
 
-//		map& operator= (const map& x);
+		map& operator= (const map& x){
+			if (*this == x)
+				return *this;
+			if (this->_size != 0)
+				this->clear();
+			this->_compare = x._compare;
+			this->_alloc = x._alloc;
+
+			this->_shadow = this->_root = new node(*x._shadow);
+			this->insert(x.begin(), x.end());
+			return *this;
+		}
 
 //		Capacity
 		bool empty() const{
@@ -563,6 +579,23 @@ namespace ft {
 			return _compare;
 		}
 	};
+
+	template< class Key, class T, class Compare, class Alloc >
+	bool operator==( const ft::map<Key,T,Compare,Alloc>& lhs,
+					 const ft::map<Key,T,Compare,Alloc>& rhs ){
+		if (lhs.size() != rhs.size())
+			return false;
+		typename ft::map<Key, T>::const_iterator it_lhs = lhs.begin();
+		typename ft::map<Key, T>::const_iterator it_rhs = rhs.begin();
+		typename ft::map<Key, T>::const_iterator ite_lhs = lhs.end();
+		while (it_lhs != ite_lhs){
+			if (*it_lhs != *it_rhs)
+				return false;
+			it_lhs++;
+			it_rhs++;
+		}
+		return true;
+	}
 }
 
 #endif

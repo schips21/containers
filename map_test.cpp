@@ -10,7 +10,8 @@ int main() {
 	ft::map<int, int>::iterator it = ++ft_map.begin();
 	std::cout << ft_map.count(5);
 
-//	ft::map<int, int> ft_map2;
+	ft::map<int, int> ft_map2;
+	ft_map2 = ft_map;
 //	ft_map2.insert_elem(std::pair<const int, int>(9, 11));
 //	ft_map.swap(ft_map2);
 
