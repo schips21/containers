@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 namespace ft {
 	template < class Key, class T, class Compare = std::less<Key>,
 	class Alloc = std::allocator<std::pair<const Key,T>>>
@@ -18,10 +17,6 @@ namespace ft {
 		typedef typename allocator_type::const_reference	const_reference;
 		typedef typename allocator_type::pointer			pointer;
 		typedef typename allocator_type::const_pointer		const_pointer;
-//		typedef iterator;
-//		typedef const_iterator;
-//		typedef reverse_iterator			std::reverse_iterator<iterator>;
-//		typedef const_reverse_iterator		std::reverse_iterator<const_iterator>;
 		typedef std::ptrdiff_t				difference_type;
 		typedef std::size_t					size_type;
 
@@ -51,8 +46,6 @@ namespace ft {
 			node *left_child;
 			node *right_child;
 			node() {}
-//			node(key_type key, mapped_type data) : value.first(key), value.second(data){
-//			}
 			node(const value_type& val) : value(val){
 			}
 			node(const node & other) : value(other.value){
@@ -185,8 +178,6 @@ namespace ft {
 			_size++;
 			return _root->value.second;
 		}
-
-
 
 		node *find_max_key() const{
 			node *tmp = _root;
@@ -575,12 +566,17 @@ namespace ft {
 			return this->end();
 		}
 
+//		bool operator()( const value_type& lhs, const value_type& rhs ) const{
+//			return comp(lhs.first, rhs.first);
+//		}
+
 		iterator lower_bound (const key_type& k){
 			iterator it = this->begin();
 			iterator ite = this->end();
 			while (it != ite) {
-				if (key_comp(it->_it->value.first, k) == false)
+				if (_compare(it._it->value.first, k) == false)
 					return it;
+				it++;
 			}
 			return this->end();
 		}
@@ -589,8 +585,9 @@ namespace ft {
 			const_iterator it = this->begin();
 			const_iterator ite = this->end();
 			while (it != ite) {
-				if (key_comp(it->_it->value.first, k) == false)
+				if (_compare(it._it->value.first, k) == false)
 					return it;
+				it++;
 			}
 			return this->end();
 		}
@@ -599,8 +596,9 @@ namespace ft {
 			iterator it = this->begin();
 			iterator ite = this->end();
 			while (it != ite) {
-				if (key_comp(it->_it->value.first, k) == true)
+				if (_compare(k, it._it->value.first) == true)
 					return it;
+				it++;
 			}
 			return this->end();
 		}
@@ -609,8 +607,9 @@ namespace ft {
 			const_iterator it = this->begin();
 			const_iterator ite = this->end();
 			while (it != ite) {
-				if (key_comp(it->_it->value.first, k) == true)
+				if (_compare(k, it._it->value.first) == true)
 					return it;
+				it++;
 			}
 			return this->end();
 		}
@@ -621,6 +620,10 @@ namespace ft {
 
 		std::pair<iterator,iterator> equal_range (const key_type& k){
 			return std::pair<iterator,iterator>(this->lower_bound(k), this->upper_bound(k));
+		}
+
+		allocator_type get_allocator() const{
+			return _alloc;
 		}
 
 		key_compare key_comp() const{
