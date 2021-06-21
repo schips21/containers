@@ -575,6 +575,26 @@ namespace ft {
 			return this->end();
 		}
 
+		iterator lower_bound (const key_type& k){
+			iterator it = this->begin();
+			iterator ite = this->end();
+			while (it != ite) {
+				if (key_comp(it->_it->value.first, k) == false)
+					return it;
+			}
+			return this->end();
+		}
+
+		const_iterator lower_bound (const key_type& k) const{
+			const_iterator it = this->begin();
+			const_iterator ite = this->end();
+			while (it != ite) {
+				if (key_comp(it->_it->value.first, k) == false)
+					return it;
+			}
+			return this->end();
+		}
+
 		key_compare key_comp() const{
 			return _compare;
 		}
