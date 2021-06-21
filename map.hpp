@@ -615,6 +615,14 @@ namespace ft {
 			return this->end();
 		}
 
+		std::pair<const_iterator,const_iterator> equal_range (const key_type& k) const{
+			return std::pair<const_iterator,const_iterator>(this->lower_bound(k), this->upper_bound(k));
+		}
+
+		std::pair<iterator,iterator> equal_range (const key_type& k){
+			return std::pair<iterator,iterator>(this->lower_bound(k), this->upper_bound(k));
+		}
+
 		key_compare key_comp() const{
 			return _compare;
 		}
