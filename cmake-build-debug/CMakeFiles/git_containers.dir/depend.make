@@ -23,3 +23,7 @@ CMakeFiles/git_containers.dir/stack_test.cpp.o: ../list.hpp
 CMakeFiles/git_containers.dir/stack_test.cpp.o: ../stack.hpp
 CMakeFiles/git_containers.dir/stack_test.cpp.o: ../stack_test.cpp
 
+CMakeFiles/git_containers.dir/vector_test.cpp.o: ../tests.hpp
+CMakeFiles/git_containers.dir/vector_test.cpp.o: ../vector.hpp
+CMakeFiles/git_containers.dir/vector_test.cpp.o: ../vector_test.cpp
+

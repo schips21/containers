@@ -177,4 +177,5 @@ void map_test(){
 	std::cout << std::endl << "<= operator" << std::endl;
 	std::cout << "FT Map\t\t" << (ft_map <= ft_map2) << std::endl;
 	std::cout << "STD Map\t\t" << (std_map <= std_map2) << std::endl;
+	std::cout << std::endl;
 }

@@ -64,5 +64,5 @@ void queue_test(){
 
 	std::cout << "Std queue >=: " << (std_queue_char_one >= std_queue_char_two) << std::endl;
 	std::cout << "Ft queue >=: " << (ft_queue_char_one >= ft_queue_char_two) << std::endl;
-//	sleep(1000);
+	std::cout << std::endl;
 }

@@ -6,34 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/schips/Desktop/containers/list.hpp
-iostream
--
-
-/Users/schips/Desktop/containers/list_test.cpp
-list.hpp
-/Users/schips/Desktop/containers/list.hpp
-list
--
-unistd.h
--
-tests.hpp
-/Users/schips/Desktop/containers/tests.hpp
-
-/Users/schips/Desktop/containers/main.cpp
-list.hpp
-/Users/schips/Desktop/containers/list.hpp
-list
--
-stack.hpp
-/Users/schips/Desktop/containers/stack.hpp
-vector.hpp
-/Users/schips/Desktop/containers/vector.hpp
-vector
--
-tests.hpp
-/Users/schips/Desktop/containers/tests.hpp
-
 /Users/schips/Desktop/containers/map.hpp
 iostream
 -
@@ -46,21 +18,5 @@ map
 tests.hpp
 /Users/schips/Desktop/containers/tests.hpp
 
-/Users/schips/Desktop/containers/stack.hpp
-list.hpp
-/Users/schips/Desktop/containers/list.hpp
-
-/Users/schips/Desktop/containers/stack_test.cpp
-stack.hpp
-/Users/schips/Desktop/containers/stack.hpp
-stack
--
-unistd.h
--
-
 /Users/schips/Desktop/containers/tests.hpp
-
-/Users/schips/Desktop/containers/vector.hpp
-iostream
--
 

@@ -107,6 +107,7 @@ namespace ft {
 		}
 		~map(){
 			this->clear();
+			delete _shadow;
 		}
 
 		map& operator= (const map& x){
@@ -171,6 +172,7 @@ namespace ft {
 			return tmp->value.second;
 		}
 
+	private:
 		mapped_type& create_root(const value_type& val) {
 			_root = new node(val);
 			_root->parent = _root->left_child = _root->right_child = _shadow;
@@ -218,7 +220,6 @@ namespace ft {
 				_it = it;
 				_shad = shadow;
 			}
-//			конструктор копирования и оператор = в классе итератор
 			~it_general(){}
 			bool operator==(const it_general& rhs) const{
 				return (this->_it == rhs._it);
@@ -226,7 +227,6 @@ namespace ft {
 			bool operator!=(const it_general& rhs) const{
 				return (this->_it != rhs._it);
 			}
-
 			value_type &operator*(){
 				return (this->_it->value);
 			}
@@ -380,6 +380,7 @@ namespace ft {
 			return const_reverse_iterator(_shadow, _shadow);
 		}
 
+	private:
 		std::pair<iterator,bool> insert_elem(const value_type& val) {
 			node *tmp = _root;
 			if (_root == _shadow){
@@ -416,6 +417,7 @@ namespace ft {
 			return(std::pair<iterator,bool>(iterator(tmp, _shadow), true));
 		}
 
+	public:
 		std::pair<iterator,bool> insert (const value_type& val){
 			return this->insert_elem(val);
 		}
@@ -565,10 +567,6 @@ namespace ft {
 			}
 			return this->end();
 		}
-
-//		bool operator()( const value_type& lhs, const value_type& rhs ) const{
-//			return comp(lhs.first, rhs.first);
-//		}
 
 		iterator lower_bound (const key_type& k){
 			iterator it = this->begin();

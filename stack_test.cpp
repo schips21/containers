@@ -3,6 +3,10 @@
 #include <unistd.h>
 
 void stack_test(){
+	std::cout << "---------------------" << std::endl;
+	std::cout << "     STACK TESTS     " << std::endl;
+	std::cout << "---------------------" << std::endl << std::endl;
+
 	std::stack<char> std_stack_char_one;
 	ft::stack<char> ft_stack_char_one;
 
@@ -62,5 +66,5 @@ void stack_test(){
 
 	std::cout << "Std stack >=: " << (std_stack_char_one >= std_stack_char_two) << std::endl;
 	std::cout << "Ft stack >=: " << (ft_stack_char_one >= ft_stack_char_two) << std::endl;
-//	sleep(1000);
+	std::cout << std::endl;
 }

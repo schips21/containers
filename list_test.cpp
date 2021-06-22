@@ -250,18 +250,18 @@ void list_test(){
 
 
 	std_it = std_list_int_one.begin();
-	std_it++; //2
+	std_it++;
 	std_ite = std_it;
 	std_ite++;
 	std_ite++;
-	std_ite++; //5
+	std_ite++;
 	std_list_int_two.splice(std_list_int_two.begin(), std_list_int_one);
 	ft_it = ft_list_int_one.begin();
-	ft_it++; //2
+	ft_it++;
 	ft_ite = ft_it;
 	ft_ite++;
 	ft_ite++;
-	ft_ite++; //5
+	ft_ite++;
 	ft_list_int_two.splice(ft_list_int_two.begin(), ft_list_int_one);
 	std::cout << "Std list two after splice function:\n";
 	print_std_list(std_list_int_two);
@@ -308,6 +308,5 @@ void list_test(){
 	print_std_list(std_list_int_two);
 	std::cout << "Ft list two after sort function:\n";
 	print_ft_list(ft_list_int_two);
-//	sleep(1000);
-
+	std::cout << std::endl;
 }

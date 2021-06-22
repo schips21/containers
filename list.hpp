@@ -32,12 +32,6 @@ namespace ft {
 		typedef typename allocator_type::const_reference	const_reference;
 		typedef typename allocator_type::pointer			pointer;
 		typedef typename allocator_type::const_pointer	const_pointer;
-//		typedef iterator;
-//		typedef const_iterator;
-//		typedef reverse_iterator			std::reverse_iterator<iterator>;
-//		typedef const_reverse_iterator		std::reverse_iterator<const_iterator>;
-
-
 
 	private:
 		size_type		_list_size;
@@ -75,7 +69,6 @@ namespace ft {
 			_head->_next = _shadow;
 			_shadow->_next = _head;
 			for (int i = 1; i < _list_size; i++){
-//				убрать +i
 				tmp = new node(value);
 				_head->_next = tmp;
 				tmp->_prev = _head;
@@ -182,33 +175,20 @@ namespace ft {
 
 //		ELEMENT ACCESS
 		reference front(){
-//			if(this->_head != NULL)
-				return this->_head->_data;
+			return this->_head->_data;
 		}
 
 		const_reference front() const{
-//			if(this->_head != NULL)
-				return this->_head;
+			return this->_head;
 		}
 
 		reference back(){
-//			if (this->_tail != NULL)
-				return this->_tail->_data;
+			return this->_tail->_data;
 		}
 
 		const_reference back() const{
-//			if (this->_tail != NULL)
-				return this->_tail->_data;
+			return this->_tail->_data;
 		}
-
-
-//		value_type front(){
-//			return this->_head->_data;
-//		}
-
-//		value_type back(){
-//			return this->_tail->_data;
-//		}
 
 //		ITERATORS
 	private:
@@ -373,7 +353,6 @@ namespace ft {
 			return const_reverse_iterator(this->_head->_prev);
 		}
 
-
 //		CAPACITY
 		bool empty() const{
 			if (_tail == _head && _head == _shadow)
@@ -399,7 +378,6 @@ namespace ft {
 					tmp = tmp->_next;
 					delete tmp->_prev;
 				}
-//			_head = _tail = _shadow = NULL;
 			_shadow = new node();
 			_head = _tail = _shadow;
 			}
@@ -447,7 +425,6 @@ namespace ft {
 				pos._it->_prev = tmp;
 				_list_size++;
 			}
-//			return pos;
 		}
 
 		template< class InputIt >
@@ -476,7 +453,6 @@ namespace ft {
 //		Erase
 
 		iterator erase( iterator pos ){
-//			в стандартном контейнере для этих кейсов сега
 			if (this->empty() || pos == this->end())
 				return pos;
 			if (pos == --(this->end()))
@@ -517,7 +493,6 @@ namespace ft {
 			else{
 				node * tmp;
 				tmp = new node(value);
-//				_tail->_prev->_next = tmp;
 				_tail->_next = tmp;
 				tmp->_prev = _tail;
 				_tail = tmp;
@@ -618,8 +593,6 @@ namespace ft {
 
 		template <class Compare>
 		void merge( list& other, Compare comp ){
-//			if (*this == other)
-//				return;
 			iterator it_this = this->begin();
 			iterator it_other = other.begin();
 			iterator ite_this = this->end();
@@ -627,24 +600,10 @@ namespace ft {
 			iterator tmp;
 			while (it_other != ite_other && other._list_size > 0){
 				if (comp(*it_other, *it_this) == true || it_this == ite_this){
-//					it_other._it->_next->_prev = it_other._it->_prev;
-//					it_other._it->_prev->_next = it_other._it->_next;
-//					if (it_other == other.begin())
-//						other._head = other._head->_next;
-//					other._list_size--;
-//
-//					it_this._it->_prev->_next = it_other._it;
-//					it_this._it->_prev = it_other._it;
-//					it_this._it->_prev->_prev = it_this._it->_prev;
-//					it_this._it->_prev->_next = it_this._it;
-////					it_other._it->_prev = it_this._it->_prev;
-////					it_other._it->_next = it_this._it;
-//					it_other++;
 					tmp = it_other;
 					tmp++;
 					this->splice(it_this, other, it_other);
 					it_other = tmp;
-//					this->_list_size++;
 				}
 				else{
 					it_this++;
@@ -660,29 +619,6 @@ namespace ft {
 				it = other.begin();
 			}
 		}
-
-//		void swap_node_splice(node * first_node, list& first_list, node * second_node, list& second_list){
-//			node *tmp_first;
-//			node *tmp_second;
-//			if (first_node == first_list._head)
-//				first_list._head = second_node;
-//			else if (second_node == second_list._head)
-//				second_list._head = first_node;
-//			if (first_node == first_list._tail)
-//				first_list._tail = second_node;
-//			else if (second_node == second_list._tail)
-//				second_list._tail = first_node;
-//			tmp_first = first_node->_prev;
-//			tmp_second = second_node->_next;
-//			first_node->_prev->_next = second_node;
-//			first_node->_prev = second_node->_prev;
-//			second_node->_prev->_next = first_node;
-//			second_node->_prev = tmp_first;
-//			second_node->_next->_prev = first_node;
-//			second_node->_next = first_node->_next;
-//			first_node->_next->_prev = second_node;
-//			first_node->_next = tmp_second;
-//		}
 
 //		Transfers the element pointed to by it from other into *this. The element is inserted before the element pointed to by pos
 		void splice( const_iterator pos, list& other, const_iterator it ){
@@ -708,9 +644,6 @@ namespace ft {
 			if (pos._it == this->_shadow && pos._it->_prev != this->_tail){
 				this->_tail = pos._it->_prev;
 			}
-
-//			swap_node_splice(pos._it, *this, it._it, other);
-
 			this->_list_size++;
 			other._list_size--;
 		}
@@ -798,6 +731,7 @@ namespace ft {
 			}
 		}
 
+	private:
 		void swap_node(node * first_node, node * second_node){
 			node *tmp_first;
 			node *tmp_second;
@@ -821,6 +755,7 @@ namespace ft {
 			first_node->_next = tmp_second;
 		}
 
+	public:
 		void sort(){
 			iterator it = this->begin();
 			iterator ite = this->end();

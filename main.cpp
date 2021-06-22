@@ -9,10 +9,10 @@
 
 
 int main(){
-//	list_test();
-
-//	map_test();
-//	queue_test();
-//	stack_test();
+	list_test();
+	vector_test();
+	map_test();
+	queue_test();
+	stack_test();
 	return 0;
 }

@@ -23,3 +23,7 @@ CMakeFiles/git_containers.dir/stack_test.cpp.o
  /Users/schips/Desktop/containers/list.hpp
  /Users/schips/Desktop/containers/stack.hpp
  /Users/schips/Desktop/containers/stack_test.cpp
+CMakeFiles/git_containers.dir/vector_test.cpp.o
+ /Users/schips/Desktop/containers/tests.hpp
+ /Users/schips/Desktop/containers/vector.hpp
+ /Users/schips/Desktop/containers/vector_test.cpp

@@ -42,7 +42,7 @@ namespace ft{
 
 		template <class InputIterator>
 		vector (InputIterator first, InputIterator last,
-				const allocator_type& alloc = allocator_type(), typename enable_if<!std::numeric_limits<InputIterator>::is_specialized>::type * = 0){
+				const allocator_type& alloc = allocator_type(), typename std::enable_if<!std::numeric_limits<InputIterator>::is_specialized>::type * = 0){
 			_alloc = alloc;
 			_size = 0;
 			_capacity = 0;
@@ -69,7 +69,6 @@ namespace ft{
 				return *this;
 			}
 			this->delete_vect();
-//			this->_capacity = x._capacity;
 			this->_alloc = x._alloc;
 			iterator it = x.begin();
 			iterator ite = x.end();
@@ -183,7 +182,6 @@ namespace ft{
 			virtual ~const_iterator(){}
 			const T &operator*() const{
 				return *(this->_it);
-//				return (this->_it->_data);
 			}
 		}				const_iterator;
 
@@ -245,7 +243,6 @@ namespace ft{
 			virtual ~const_reverse_iterator(){}
 			const T &operator*() const{
 				return *(this->_it);
-//				return (this->_it->_data);
 			}
 		}				const_reverse_iterator;
 
@@ -274,9 +271,7 @@ namespace ft{
 			return (const_reverse_iterator(this->_data - 1));
 		}
 
-
 //		Capacity
-
 		size_type size() const{
 			return _size;
 		}
@@ -310,6 +305,7 @@ namespace ft{
 			return false;
 		}
 
+	private:
 		void capacity_realloc(size_type n){
 			pointer tmp = this->_alloc.allocate(n);
 			for (size_type i = 0; i < _size; i++)
@@ -321,6 +317,7 @@ namespace ft{
 			_data = tmp;
 		}
 
+	public:
 		void reserve (size_type n){
 			if (n <= this->_capacity)
 				return;
@@ -341,13 +338,13 @@ namespace ft{
 
 		reference at (size_type n){
 			if (n >= _size)
-				throw std::out_of_range("invalid index");
+				throw std::out_of_range("vector");
 			return _data[n];
 		}
 
 		const_reference at (size_type n) const{
 			if (n >= _size)
-				throw std::out_of_range("invalid index");
+				throw std::out_of_range("vector");
 			return _data[n];
 		}
 
@@ -370,7 +367,7 @@ namespace ft{
 //		Modifiers
 
 		template <class InputIterator>
-		void assign (InputIterator first, InputIterator last){
+		void assign (InputIterator first, InputIterator last, typename std::enable_if<!std::numeric_limits<InputIterator>::is_specialized>::type * = 0){
 			int n = 0;
 			InputIterator tmp = first;
 			while (tmp++ != last)
@@ -398,7 +395,6 @@ namespace ft{
 
 		void push_back (const value_type& val){
 			if (_size + 1 > _capacity)
-//				this->capacity_realloc(_capacity + 1);
 				this->capacity_realloc(_capacity == 0 ? 1 : _capacity * 2);
 			_alloc.construct(_data + _size, val);
 			_size++;
@@ -456,7 +452,7 @@ namespace ft{
 		}
 
 		template <class InputIterator>
-		void insert (iterator position, InputIterator first, InputIterator last, typename enable_if<!std::numeric_limits<InputIterator>::is_specialized>::type * = 0){
+		void insert (iterator position, InputIterator first, InputIterator last, typename std::enable_if<!std::numeric_limits<InputIterator>::is_specialized>::type * = 0){
 			if (position == this->end()) {
 				while (first != last) {
 					this->push_back(*first);
@@ -516,8 +512,6 @@ namespace ft{
 		}
 
 		void swap (vector& x){
-//			if (x == *this)
-//				return;
 			allocator_type tmp_alloc;
 			size_type tmp_size;
 			size_type tmp_capacity;
@@ -545,12 +539,7 @@ namespace ft{
 				this->pop_back();
 		}
 
-		allocator_type get_allocator() const{
-			return std::allocator<T>(_alloc);
-		}
-
-//		Utils
-
+	private:
 		void delete_vect(){
 			if (this->_size != 0){
 				for (size_type i = 0; i < _size; i++)
@@ -559,6 +548,11 @@ namespace ft{
 				_capacity = 0;
 				_size = 0;
 			}
+		}
+
+	public:
+		allocator_type get_allocator() const{
+			return std::allocator<T>(_alloc);
 		}
 	};
 
