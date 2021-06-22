@@ -93,12 +93,12 @@ clean: CMakeFiles/git_containers.dir/clean
 CMakeFiles/git_containers.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target git_containers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target git_containers"
 .PHONY : CMakeFiles/git_containers.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/git_containers.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/git_containers.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/git_containers.dir/rule

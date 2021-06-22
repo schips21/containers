@@ -6,8 +6,9 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(git_containers
-#        list.hpp
-#        queue_test.cpp)
-#        main.cpp)
-#        list_test.cpp)
-        map_test.cpp)
+        list_test.cpp
+        vector_test.cpp
+        map_test.cpp
+        queue_test.cpp
+        stack_test.cpp
+        main.cpp)

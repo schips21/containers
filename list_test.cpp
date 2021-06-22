@@ -1,7 +1,7 @@
 #include "list.hpp"
 #include <list>
 #include <unistd.h>
-
+#include "tests.hpp"
 
 template <class T>
 void print_std_list(std::list<T> & list){
@@ -41,7 +41,11 @@ bool my_pred(int data){
 	return false;
 }
 
-int main(){
+void list_test(){
+	std::cout << "---------------------" << std::endl;
+	std::cout << "      LIST TESTS     " << std::endl;
+	std::cout << "---------------------" << std::endl << std::endl;
+
 	std::list<int> std_list_int_one(5, 15);
 	ft::list<int> ft_list_int_one(5, 15);
 

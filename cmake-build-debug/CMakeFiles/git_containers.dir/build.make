@@ -76,9 +76,35 @@ include CMakeFiles/git_containers.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/git_containers.dir/flags.make
 
+CMakeFiles/git_containers.dir/list_test.cpp.o: CMakeFiles/git_containers.dir/flags.make
+CMakeFiles/git_containers.dir/list_test.cpp.o: ../list_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/git_containers.dir/list_test.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/list_test.cpp.o -c /Users/schips/Desktop/containers/list_test.cpp
+
+CMakeFiles/git_containers.dir/list_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/git_containers.dir/list_test.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/schips/Desktop/containers/list_test.cpp > CMakeFiles/git_containers.dir/list_test.cpp.i
+
+CMakeFiles/git_containers.dir/list_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/list_test.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/schips/Desktop/containers/list_test.cpp -o CMakeFiles/git_containers.dir/list_test.cpp.s
+
+CMakeFiles/git_containers.dir/vector_test.cpp.o: CMakeFiles/git_containers.dir/flags.make
+CMakeFiles/git_containers.dir/vector_test.cpp.o: ../vector_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/git_containers.dir/vector_test.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/vector_test.cpp.o -c /Users/schips/Desktop/containers/vector_test.cpp
+
+CMakeFiles/git_containers.dir/vector_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/git_containers.dir/vector_test.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/schips/Desktop/containers/vector_test.cpp > CMakeFiles/git_containers.dir/vector_test.cpp.i
+
+CMakeFiles/git_containers.dir/vector_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/vector_test.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/schips/Desktop/containers/vector_test.cpp -o CMakeFiles/git_containers.dir/vector_test.cpp.s
+
 CMakeFiles/git_containers.dir/map_test.cpp.o: CMakeFiles/git_containers.dir/flags.make
 CMakeFiles/git_containers.dir/map_test.cpp.o: ../map_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/git_containers.dir/map_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/git_containers.dir/map_test.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/map_test.cpp.o -c /Users/schips/Desktop/containers/map_test.cpp
 
 CMakeFiles/git_containers.dir/map_test.cpp.i: cmake_force
@@ -89,17 +115,66 @@ CMakeFiles/git_containers.dir/map_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/map_test.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/schips/Desktop/containers/map_test.cpp -o CMakeFiles/git_containers.dir/map_test.cpp.s
 
+CMakeFiles/git_containers.dir/queue_test.cpp.o: CMakeFiles/git_containers.dir/flags.make
+CMakeFiles/git_containers.dir/queue_test.cpp.o: ../queue_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/git_containers.dir/queue_test.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/queue_test.cpp.o -c /Users/schips/Desktop/containers/queue_test.cpp
+
+CMakeFiles/git_containers.dir/queue_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/git_containers.dir/queue_test.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/schips/Desktop/containers/queue_test.cpp > CMakeFiles/git_containers.dir/queue_test.cpp.i
+
+CMakeFiles/git_containers.dir/queue_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/queue_test.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/schips/Desktop/containers/queue_test.cpp -o CMakeFiles/git_containers.dir/queue_test.cpp.s
+
+CMakeFiles/git_containers.dir/stack_test.cpp.o: CMakeFiles/git_containers.dir/flags.make
+CMakeFiles/git_containers.dir/stack_test.cpp.o: ../stack_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/git_containers.dir/stack_test.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/stack_test.cpp.o -c /Users/schips/Desktop/containers/stack_test.cpp
+
+CMakeFiles/git_containers.dir/stack_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/git_containers.dir/stack_test.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/schips/Desktop/containers/stack_test.cpp > CMakeFiles/git_containers.dir/stack_test.cpp.i
+
+CMakeFiles/git_containers.dir/stack_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/stack_test.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/schips/Desktop/containers/stack_test.cpp -o CMakeFiles/git_containers.dir/stack_test.cpp.s
+
+CMakeFiles/git_containers.dir/main.cpp.o: CMakeFiles/git_containers.dir/flags.make
+CMakeFiles/git_containers.dir/main.cpp.o: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/git_containers.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/git_containers.dir/main.cpp.o -c /Users/schips/Desktop/containers/main.cpp
+
+CMakeFiles/git_containers.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/git_containers.dir/main.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/schips/Desktop/containers/main.cpp > CMakeFiles/git_containers.dir/main.cpp.i
+
+CMakeFiles/git_containers.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/git_containers.dir/main.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/schips/Desktop/containers/main.cpp -o CMakeFiles/git_containers.dir/main.cpp.s
+
 # Object files for target git_containers
 git_containers_OBJECTS = \
-"CMakeFiles/git_containers.dir/map_test.cpp.o"
+"CMakeFiles/git_containers.dir/list_test.cpp.o" \
+"CMakeFiles/git_containers.dir/vector_test.cpp.o" \
+"CMakeFiles/git_containers.dir/map_test.cpp.o" \
+"CMakeFiles/git_containers.dir/queue_test.cpp.o" \
+"CMakeFiles/git_containers.dir/stack_test.cpp.o" \
+"CMakeFiles/git_containers.dir/main.cpp.o"
 
 # External object files for target git_containers
 git_containers_EXTERNAL_OBJECTS =
 
+git_containers: CMakeFiles/git_containers.dir/list_test.cpp.o
+git_containers: CMakeFiles/git_containers.dir/vector_test.cpp.o
 git_containers: CMakeFiles/git_containers.dir/map_test.cpp.o
+git_containers: CMakeFiles/git_containers.dir/queue_test.cpp.o
+git_containers: CMakeFiles/git_containers.dir/stack_test.cpp.o
+git_containers: CMakeFiles/git_containers.dir/main.cpp.o
 git_containers: CMakeFiles/git_containers.dir/build.make
 git_containers: CMakeFiles/git_containers.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable git_containers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/schips/Desktop/containers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable git_containers"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/git_containers.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

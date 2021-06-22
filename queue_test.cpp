@@ -2,7 +2,11 @@
 #include <queue>
 #include <unistd.h>
 
-int main(){
+void queue_test(){
+	std::cout << "---------------------" << std::endl;
+	std::cout << "     QUEUE TESTS     " << std::endl;
+	std::cout << "---------------------" << std::endl << std::endl;
+
 	std::queue<char> std_queue_char_one;
 	ft::queue<char> ft_queue_char_one;
 

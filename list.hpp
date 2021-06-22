@@ -231,7 +231,7 @@ namespace ft {
 				return (this->_it != rhs._it);
 			}
 
-			virtual T &operator*() const{
+			T &operator*() const{
 				return (this->_it->_data);
 			}
 			T *operator->() const{

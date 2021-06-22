@@ -2,7 +2,7 @@
 #include <stack>
 #include <unistd.h>
 
-int main(){
+void stack_test(){
 	std::stack<char> std_stack_char_one;
 	ft::stack<char> ft_stack_char_one;
 

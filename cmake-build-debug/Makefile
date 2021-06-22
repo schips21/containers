@@ -142,6 +142,60 @@ git_containers/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/build
 .PHONY : git_containers/fast
 
+list_test.o: list_test.cpp.o
+
+.PHONY : list_test.o
+
+# target to build an object file
+list_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/list_test.cpp.o
+.PHONY : list_test.cpp.o
+
+list_test.i: list_test.cpp.i
+
+.PHONY : list_test.i
+
+# target to preprocess a source file
+list_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/list_test.cpp.i
+.PHONY : list_test.cpp.i
+
+list_test.s: list_test.cpp.s
+
+.PHONY : list_test.s
+
+# target to generate assembly for a file
+list_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/list_test.cpp.s
+.PHONY : list_test.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 map_test.o: map_test.cpp.o
 
 .PHONY : map_test.o
@@ -169,6 +223,87 @@ map_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/map_test.cpp.s
 .PHONY : map_test.cpp.s
 
+queue_test.o: queue_test.cpp.o
+
+.PHONY : queue_test.o
+
+# target to build an object file
+queue_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/queue_test.cpp.o
+.PHONY : queue_test.cpp.o
+
+queue_test.i: queue_test.cpp.i
+
+.PHONY : queue_test.i
+
+# target to preprocess a source file
+queue_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/queue_test.cpp.i
+.PHONY : queue_test.cpp.i
+
+queue_test.s: queue_test.cpp.s
+
+.PHONY : queue_test.s
+
+# target to generate assembly for a file
+queue_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/queue_test.cpp.s
+.PHONY : queue_test.cpp.s
+
+stack_test.o: stack_test.cpp.o
+
+.PHONY : stack_test.o
+
+# target to build an object file
+stack_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/stack_test.cpp.o
+.PHONY : stack_test.cpp.o
+
+stack_test.i: stack_test.cpp.i
+
+.PHONY : stack_test.i
+
+# target to preprocess a source file
+stack_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/stack_test.cpp.i
+.PHONY : stack_test.cpp.i
+
+stack_test.s: stack_test.cpp.s
+
+.PHONY : stack_test.s
+
+# target to generate assembly for a file
+stack_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/stack_test.cpp.s
+.PHONY : stack_test.cpp.s
+
+vector_test.o: vector_test.cpp.o
+
+.PHONY : vector_test.o
+
+# target to build an object file
+vector_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/vector_test.cpp.o
+.PHONY : vector_test.cpp.o
+
+vector_test.i: vector_test.cpp.i
+
+.PHONY : vector_test.i
+
+# target to preprocess a source file
+vector_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/vector_test.cpp.i
+.PHONY : vector_test.cpp.i
+
+vector_test.s: vector_test.cpp.s
+
+.PHONY : vector_test.s
+
+# target to generate assembly for a file
+vector_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/git_containers.dir/build.make CMakeFiles/git_containers.dir/vector_test.cpp.s
+.PHONY : vector_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -178,9 +313,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... git_containers"
+	@echo "... list_test.o"
+	@echo "... list_test.i"
+	@echo "... list_test.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... map_test.o"
 	@echo "... map_test.i"
 	@echo "... map_test.s"
+	@echo "... queue_test.o"
+	@echo "... queue_test.i"
+	@echo "... queue_test.s"
+	@echo "... stack_test.o"
+	@echo "... stack_test.i"
+	@echo "... stack_test.s"
+	@echo "... vector_test.o"
+	@echo "... vector_test.i"
+	@echo "... vector_test.s"
 .PHONY : help
 
 

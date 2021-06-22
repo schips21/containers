@@ -1,5 +1,6 @@
 #include "map.hpp"
 #include <map>
+#include "tests.hpp"
 
 template <class Key, class T>
 void print_std_map(std::map<Key, T> & map){
@@ -25,7 +26,11 @@ void print_ft_map(ft::map<Key, T> & map){
 	std::cout << std::endl;
 }
 
-int main() {
+void map_test(){
+	std::cout << "---------------------" << std::endl;
+	std::cout << "      MAP TESTS      " << std::endl;
+	std::cout << "---------------------" << std::endl << std::endl;
+
 	ft::map<int, int> ft_map;
 	std::map<int, int> std_map;
 
@@ -172,5 +177,4 @@ int main() {
 	std::cout << std::endl << "<= operator" << std::endl;
 	std::cout << "FT Map\t\t" << (ft_map <= ft_map2) << std::endl;
 	std::cout << "STD Map\t\t" << (std_map <= std_map2) << std::endl;
-	return 0;
 }
